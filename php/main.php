@@ -118,5 +118,4 @@ function paginador_tablas($pagina, $npaginas,$url,$botones){
 }
 
 
-
 ?>

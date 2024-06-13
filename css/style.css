@@ -1,116 +1,183 @@
-.pagination-ellipsis,.pagination-link,
-.pagination-next,.pagination-previous{
-    -moz-appearance:none;
-    -webkit-appearance:none;
-    align-items:center;
-    border:1px solid transparent;
-    border-radius:4px;
-    box-shadow:none;
-    display:inline-flex;
-    font-size:1rem;
-    height:2.5em;
-    justify-content:flex-start;
-    line-height:1.5;
-    padding-bottom:calc(.5em - 1px);
-    padding-left:calc(.75em - 1px);
-    padding-right:calc(.75em - 1px);
-    padding-top:calc(.5em - 1px);
-    position:relative;
-    vertical-align:top
+.page-ellipsis, .page-link, 
+.next-button, .prev-button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: center; /* Cambiado a center para alinear correctamente */
+    line-height: 1.5;
+    padding: 0.5em 0.75em; /* Simplificado el padding */
+    position: relative;
+    vertical-align: top;
+}
+
+.my-pagination {
+    font-size: 1rem;
+    margin: -0.25rem;
+    display: flex; /* Asegura que la paginación esté en línea */
+    justify-content: center; /* Centra el contenido */
+    align-items: center; /* Centra verticalmente */
+}
+
+.my-pagination.small { font-size: 0.75rem }
+.my-pagination.medium { font-size: 1.25rem }
+.my-pagination.large { font-size: 1.5rem }
+.my-pagination.rounded 
+.next-button, 
+.my-pagination.rounded 
+.prev-button { padding-left: 1em; padding-right: 1em; border-radius: 9999px }
+.my-pagination.rounded 
+.page-link { border-radius: 9999px }
+.pagination-items {
+    align-items: center;
+    display: flex;
+    justify-content: center; /* Asegura que los elementos estén centrados */
+    text-align: center;
+}
+.page-ellipsis, .page-link, .next-button, .prev-button {
+    font-size: 1em;
+    justify-content: center;
+    margin: 0.25rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: center;
+}
+.page-link, .next-button, .prev-button {
+    border-color: #dbdbdb;
+    color: #363636;
+    min-width: 2.5em;
+}
+.page-link:hover, .next-button:hover, .prev-button:hover {
+    border-color: #b5b5b5;
+    color: #363636;
+}
+.page-link:focus, .next-button:focus, .prev-button:focus {
+    border-color: #485fc7;
+}
+.page-link:active, .next-button:active, .prev-button:active {
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2);
+}
+.page-link.disabled, 
+.page-link[disabled], 
+.next-button.disabled, 
+.next-button[disabled], 
+.prev-button.disabled, 
+.prev-button[disabled] {
+    background-color: #dbdbdb;
+    border-color: #dbdbdb;
+    box-shadow: none;
+    color: #7a7a7a;
+    opacity: 0.5;
+}
+.next-button, .prev-button {
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    white-space: nowrap;
+}
+.page-link.current {
+    background-color: #485fc7;
+    border-color: #485fc7;
+    color: #fff;
+}
+.page-ellipsis {
+    color: #b5b5b5;
+    pointer-events: none;
+}
+.pagination-items {
+    flex-wrap: wrap;
+}
+.pagination-items li {
+    list-style: none;
+}
+@media screen and (max-width: 768px) {
+    .my-pagination { flex-wrap: wrap; }
+    .next-button, 
+    .prev-button { flex-grow: 1; flex-shrink: 1; }
+    .pagination-items li { flex-grow: 1; flex-shrink: 1; }
+}
+@media screen and (min-width: 769px), 
+print {
+    .pagination-items { flex-grow: 1; flex-shrink: 1; justify-content: flex-start; order: 1; }
+    .page-ellipsis, 
+    .page-link, 
+    .next-button, 
+    .prev-button { margin-bottom: 0; margin-top: 0; }
+    .prev-button { order: 2; }
+    .next-button { order: 3; }
+    .my-pagination { justify-content: space-between; margin-bottom: 0; margin-top: 0; }
+    .my-pagination.centered .prev-button { order: 1; }
+    .my-pagination.centered .pagination-items { justify-content: center; order: 2; }
+    .my-pagination.centered .next-button { order: 3; }
+    .my-pagination.right .prev-button { order: 1; }
+    .my-pagination.right .next-button { order: 2; }
+    .my-pagination.right .pagination-items { justify-content: flex-end; order: 3; }
 }
 
 
-.pagination{font-size:1rem;margin:-.25rem;}
-.pagination.is-small{font-size:.75rem}
-.pagination.is-medium{font-size:1.25rem}
-.pagination.is-large{font-size:1.5rem}
-.pagination.is-rounded 
-.pagination-next,
-.pagination.is-rounded 
-.pagination-previous{padding-left:1em;padding-right:1em;border-radius:9999px}
-.pagination.is-rounded 
-.pagination-link{border-radius:9999px}
-.pagination,
-.pagination-list{
-    align-items:center;
-    display:flex;
-    justify-content:center;
-    text-align:center
+/* para el buscador */
+
+
+/* Estilos generales para el formulario de búsqueda */
+.custom-search-form {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    
 }
-.pagination-ellipsis,.pagination-link,.pagination-next,.pagination-previous{
-    font-size:1em;
-    justify-content:center;
-    margin:.25rem;
-    padding-left:.5em;
-    padding-right:.5em;
-    text-align:center}
-.pagination-link,.pagination-next,.pagination-previous{
-    border-color:#dbdbdb;
-    color:#363636;
-    min-width:2.5em
+
+.custom-field.custom-has-addons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.pagination-link:hover,.pagination-next:hover,.pagination-previous:hover{
-    border-color:#b5b5b5;
-    color:#363636
+
+.custom-control.custom-is-expanded {
+    flex-grow: 1;
 }
-.pagination-link:focus,.pagination-next:focus,.pagination-previous:focus{
-    border-color:#485fc7
+
+.custom-input.custom-is-rounded {
+    border-radius: 30px;
+    padding: 5px 10px;
+    font-size: 16px;
+    border:1px solid rgb(149, 146, 146);
+    width: 80%;
 }
-.pagination-link:active,.pagination-next:active,.pagination-previous:active{
-box-shadow:inset 0 1px 2px rgba(10,10,10,.2)
+
+.custom-button.custom-is-info {
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 30px;
+    margin-left: 10px;
+    border: none;
 }
-.pagination-link.is-disabled,
-.pagination-link[disabled],
-.pagination-next.is-disabled,
-.pagination-next[disabled],
-.pagination-previous.is-disabled,
-.pagination-previous[disabled]{
-    background-color:#dbdbdb;
-    border-color:#dbdbdb;
-    box-shadow:none;
-    color:#7a7a7a;
-    opacity:.5
+
+.custom-button.custom-is-danger {
+    padding: 10px 15px;
+    font-size: 12px;
+    border-radius: 30px;
+    margin-left: 10px;
+    border: none;
+    background-color: red;
 }
-.pagination-next,.pagination-previous{
-    padding-left:.75em;
-    padding-right:.75em;
-    white-space:nowrap
+
+.custom-button.custom-is-info:hover{
+    background-color: rgb(104, 103, 103);
+    color: white;
 }
-.pagination-link.is-current{
-    background-color:#485fc7;
-    border-color:#485fc7;
-    color:#fff
+
+/* Mejora la accesibilidad */
+.custom-input.custom-is-rounded:focus {
+    outline: none;
+    border-color: #3273dc;
+    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
 }
-.pagination-ellipsis{
-    color:#b5b5b5;
-    pointer-events:none
-}
-.pagination-list{
-    flex-wrap:wrap
-}
-.pagination-list li{
-    list-style:none
-}
-@media screen and (max-width:768px){
-    .pagination{flex-wrap:wrap}
-    .pagination-next,
-    .pagination-previous{flex-grow:1;flex-shrink:1}
-    .pagination-list li{flex-grow:1;flex-shrink:1}
-}
-@media screen and (min-width:769px),
-print{
-    .pagination-list{flex-grow:1;flex-shrink:1;justify-content:flex-start;order:1}
-    .pagination-ellipsis,
-    .pagination-link,
-    .pagination-next,
-    .pagination-previous{margin-bottom:0;margin-top:0}
-    .pagination-previous{order:2}
-    .pagination-next{order:3}
-    .pagination{justify-content:space-between;margin-bottom:0;margin-top:0}
-    .pagination.is-centered .pagination-previous{order:1}
-    .pagination.is-centered .pagination-list{justify-content:center;order:2}
-    .pagination.is-centered .pagination-next{order:3}
-    .pagination.is-right .pagination-previous{order:1}
-    .pagination.is-right .pagination-next{order:2}
-    .pagination.is-right .pagination-list{justify-content:flex-end;order:3}
+
+.custom-button.custom-is-info:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.125em rgba(50, 115, 220, 0.25);
 }

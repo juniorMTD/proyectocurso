@@ -44,7 +44,7 @@
                         </p>
                     </div>
                     <div class="col-xs-12 col-sm-6 emphasis">
-                        <a href="frmtema.html" type="button" class="btn btn-success btn-xs">
+                        <a href="index.php?mostrar=frmtema" type="button" class="btn btn-success btn-xs">
                         <i class="fa fa-user"> </i> TEMAS
                         </a>
                     </div>

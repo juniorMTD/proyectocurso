@@ -4,8 +4,13 @@
             <thead>
             <tr class="headings">
                 <th class="column-title">Numero</th>
-                <th class="column-title">Nombre de categoria</th>
-                <th class="column-title">Descripcion</th>
+                <th class="column-title">Tipo</th>
+                <th class="column-title">N° DNI</th>
+                <th class="column-title">Apellidos</th>
+                <th class="column-title">Nombres</th>
+                <th class="column-title">Celular</th>
+                <th class="column-title">Correo</th>
+                <th class="column-title">Estado</th>
                 <th colspan="2" class="column-title"><span class="nobr">Accion</span>
                 </th>
             </tr>
@@ -14,8 +19,13 @@
             <tbody>
             <tr class="even pointer">
                 <td class=" ">1</td>
-                <td class=" ">Geotecnia</td>
-                <td class=" ">Es una categoria de geotenica bla bla bla</td>
+                <td class=" ">Estudiante</td>
+                <td class=" ">71296047</td>
+                <td class=" ">Democratas </td>
+                <td class=" ">Almenos Defrente</td>
+                <td class=" ">949206670</td>
+                <td class=" ">jn@gmail.com</td>
+                <td class=" ">Activo</td>
                 <td class=" last"><a type="button" class="btn btn-primary" href="#"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><a type="button" class="btn btn-danger" href="#"><i class="fa fa-trash"></i> Eliminar</a></td>
             </tr>

@@ -44,7 +44,7 @@
                 <button type="button" class="btn btn-success btn-xs">Completado</button>
                 </td>
                 <td>
-                <a href="frmcontenido.html" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Visualizar </a>
+                <a href="index.php?mostrar=frmcontenido" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Visualizar </a>
                 </td>
             </tr>
             <tr>

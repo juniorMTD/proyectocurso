@@ -6,10 +6,10 @@
 <div class="right_col" role="main">
     <div class="">
     <div >
-        <h3>CATEGORIA DE CURSOS</h3>
-        <strong>Lista de categorias</strong>
+        <h3>CURSOS</h3>
+        <strong>Lista de cursos</strong>
         <hr>
-        <a href="index.html" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR CATEGORIA</a>
+        <a href="index.html" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR CURSOS</a>
         <hr>
         
     </div>
@@ -34,7 +34,7 @@
                                             <div class="custom-field custom-has-addons">
                                                 <div class="custom-control custom-is-expanded">
                                                     <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" 
-                                                        placeholder="¿Puedes realizar la búsqueda por Nombre de categoria?" 
+                                                        placeholder="¿Puedes realizar la búsqueda por Nombre del curso?" 
                                                         pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" required>
                                                 </div>
                                                 <div class="custom-control">
@@ -56,11 +56,11 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_categoria&page=";
+                                        $url= "index.php?mostrar=formu_curso&page=";
                                         $registros = 15;
                                         // $busqueda = $_SESSION['busqueda_categoria'];
 
-                                        require_once "./php/formu_categoria_lista.php";
+                                        require_once "./php/formu_curso_lista.php";
                                     } else {
                                     ?>
                                     <div class="columns">
@@ -88,11 +88,11 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_categoria&page=";
+                                        $url= "index.php?mostrar=formu_curso&page=";
                                         $registros = 15;
                                         // $busqueda = $_SESSION['busqueda_categoria'];
 
-                                        require_once "./php/formu_categoria_lista.php";
+                                        require_once "./php/formu_curso_lista.php";
                                     }
                                     ?>
 

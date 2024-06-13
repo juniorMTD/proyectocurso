@@ -34,19 +34,18 @@
                       <li><a href="index.html">Perfil</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Cursos <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Listas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html">Lista</a></li>
+                      <li><a href="./index.php?mostrar=frmprincipal">Categoria</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="./index.php?mostrar=frmcategoria">Categorias</a></li>
-                      <li><a href="./index.php?mostrar=frmcurso">Cursos</a></li>
-                      <li><a href="./index.php?mostrar=frmtema">Temas</a></li>
-                      <li><a href="./index.php?mostrar=frmrecurso">Recursos</a></li>
-                      <li><a href="./index.php?mostrar=frmmatricula">Matricula</a></li>
-                      <li><a href="./index.php?mostrar=frmusuario">Usuarios</a></li>
+                      <li><a href="./index.php?mostrar=formu_categoria">Categorias</a></li>
+                      <li><a href="./index.php?mostrar=formu_curso">Cursos</a></li>
+                      <li><a href="./index.php?mostrar=formu_tema">Temas</a></li>
+                      <li><a href="./index.php?mostrar=formu_matricula">Matricula</a></li>
+                      <li><a href="./index.php?mostrar=formu_usuario">Usuarios</a></li>
                     </ul>
                   </li>
                 </ul>
