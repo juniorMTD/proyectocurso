@@ -17,7 +17,7 @@
               </div>
               <div class="profile_info">
                 <span>Bienvenido</span>
-                <h2>Defays Pierre</h2>
+                <h2><?php echo $_SESSION['nombres']." ".$_SESSION['apellidos'] ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -66,7 +66,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="./biblioteca/images/img.jpg" alt="">Defays Pierre
+                    <img src="./biblioteca/images/img.jpg" alt=""><?php echo $_SESSION['nombres']." ".$_SESSION['apellidos'] ?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">

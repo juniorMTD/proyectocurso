@@ -14,3 +14,4 @@
     <link href="./plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="./css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/sweetalert.css">

@@ -11,20 +11,28 @@
                         </div>
                         <h2>BIENVENIDO A LA PAGINA DE RECURSOS DE TERRACIVIL</h2>
                         <p>Por favor ingrese a su cuenta</p>
-                        <form action="#" method="POST">
+                        <form action="" method="POST" autocomplete="off">
                             <div class="form-group">
-                                <label for="usuario">USUARIO</label>
-                                <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Usuario">
+                                <label for="login_usu">USUARIO</label>
+                                <input type="text" id="login_usu" name="login_usu" class="form-control" placeholder="Usuario">
                             </div>
                             <div class="form-group">
-                                <label for="password">CONTRASEÑA</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                <label for="login_usu">CONTRASEÑA</label>
+                                <input type="password" id="login_usu" name="login_clv" class="form-control" placeholder="contraseña">
                             </div>
                             <br>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block">ENTRAR</button><br>
-                                <a href="./index.php?mostrar=pag" type="button" class="btn btn-warning btn-block">SALIR</a>
+                                <a href="./index.php?mostrar=pag"  class="btn btn-warning btn-block">SALIR</a>
                             </div>
+
+                            <?php
+                                if(isset($_POST['login_usu']) && isset($_POST['login_clv'])){
+                                    require_once "./conexion/conexion_db.php";
+                                    require_once "./php/main.php";
+                                    require_once "./php/iniciar_sesion.php";
+                                }
+                            ?>
                         </form>
                     </div>
                 </div>

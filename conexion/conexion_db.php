@@ -4,7 +4,7 @@ class Conexion
 {
     function Conexiondb(){
         $host='localhost';
-        $dbname='dbcurso';
+        $dbname='dbcursouni';
         $username='root';
         $password='';
 
