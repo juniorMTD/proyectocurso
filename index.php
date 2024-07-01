@@ -33,6 +33,7 @@
             include "./vistas/login.php";
           } else if($_GET['mostrar']=="registrarse"){
             include "./vistas/registrarse.php";
+            include "./inc/script.php";
           }
           else{
             include "./vistas/404.php";

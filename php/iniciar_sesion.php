@@ -25,7 +25,7 @@ if (verificar_datos("[a-zA-Z0-9]{4,20}", $login_usu)) {
             </div>';
     exit();
 }
-if (verificar_datos("[a-zA-Z0-9$@.-]{7,100}", $login_clv)) {
+if (verificar_datos("[a-zA-Z0-9$@.-]{6,100}", $login_clv)) {
     echo    '<div class="notification is-danger is-light">
             <strong>¡La contraseña no cumple con el formato, completar!</strong><br>
             </div>';

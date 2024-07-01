@@ -12,6 +12,7 @@ $facu = limpiar_cadena($_POST['facultad']);
 $escuela = limpiar_cadena($_POST['escuela']);
 $email = limpiar_cadena($_POST['email']);
 $celular = limpiar_cadena($_POST['celular']);
+$dire = limpiar_cadena($_POST['dire']);
 
 
 $usu = limpiar_cadena($_POST['user']);
@@ -22,7 +23,8 @@ $clave2 = limpiar_cadena($_POST['clv2']);
 
 
 
-if (empty($dni) ) {
+#validar los campos vacios
+if (empty($dni) || empty($nombres) || empty($apellidos) || empty($universidad) || empty($facu) || empty($escuela) || empty($email) || empty($celular) || empty($usu) || empty($clave) || empty($clave2)) {
     $response = array("status" => "error", "message" => "¡Todos los campos son obligatorios!");
     echo json_encode($response);
     exit();
@@ -30,127 +32,130 @@ if (empty($dni) ) {
 
 
 
-#validar los campos vacios
-if ($dni == "") {
-    echo "menjsae error";
-    exit();
-}
-if ($nombres == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,Los nombres son obligatorio completar,error";
-    exit();
-
-}
-if ($apellidos == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,Los apellidos son obligatorio completar,error";
-    exit();
-
-}
-if ($universidad == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,El nombre de la universidad es obligatorio completar,error";
-    exit();
-}
-
-if ($facultad == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,El nombre de la facultad es obligatorio completar,error";
-    exit();
-}
-if ($escuela == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,El nombre de la escuela es obligatorio completar,error";
-    exit();
-}
-if ($email == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,El email es obligatorio completar,error";
-    exit();
-}
-
-if ($celular == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,El celular es obligatorio completar,error";
-    exit();
-
-}
-
-if ($usu == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,El usuario es obligatorio completar,error";
-    exit();
-
-}
-if ($clave == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,La contraseña es obligatorio completar,error";
-    exit();
-
-}
-if ($clave2 == "") {
-    echo "!OOPSSS OCURRIO UN ERROR!,Repita su contraseña,error";
-    exit();
-
-}
-
-
 
 #validar los tipos de datos
 
 if (verificar_datos("[0-9]{8}", $dni)) {
-    echo "!OOPSSS OCURRIO UN ERROR!,La DNI no cumple con el formato,error";
+    $response = array("status" => "error", "message" => "¡El DNI no cumple con el formato solicitado!");
+    echo json_encode($response);
     exit();
-
 }
 
 if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $nombres)) {
-    echo "!OOPSSS OCURRIO UN ERROR!,Los nombres no cumple con el formato,error";
+    $response = array("status" => "error", "message" => "¡Los nombres no cumple con el formato solicitado!");
+    echo json_encode($response);
     exit();
-
 }
 
 if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $apellidos)) {
-    echo "!OOPSSS OCURRIO UN ERROR!,Los apellidos no cumple con el formato,error";
+    $response = array("status" => "error", "message" => "¡Los apellidos no cumple con el formato solicitado!");
+    echo json_encode($response);
     exit();
-
 }
+
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $universidad)) {
+    $response = array("status" => "error", "message" => "¡La universidad no cumple con el formato solicitado!");
+    echo json_encode($response);
+    exit();
+}
+
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $facu)) {
+    $response = array("status" => "error", "message" => "¡La facultad no cumple con el formato solicitado!");
+    echo json_encode($response);
+    exit();
+}
+
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $escuela)) {
+    $response = array("status" => "error", "message" => "¡La escuela no cumple con el formato solicitado!");
+    echo json_encode($response);
+    exit();
+}
+
+
 
 if (verificar_datos("[0-9]{9}", $celular)) {
-    echo "!OOPSSS OCURRIO UN ERROR!,El celular no cumple con el formato,error";
+    $response = array("status" => "error", "message" => "¡El celular no cumple con el formato solicitado!");
+    echo json_encode($response);
     exit();
-
 }
 
+
+# Verificar si las contraseñas coinciden
+if ($clave !== $clave2) {
+    $response = array("status" => "error", "message" => "¡Las contraseñas no coinciden!");
+    echo json_encode($response);
+    exit();
+}
 
 
 
 #verificar las validaciones de duplicado de datos
 $check_dni = $start->Conexiondb();
-$check_dni = $check_dni->query('select dni from paciente where dni="' . $dni . '";');
+$check_dni = $check_dni->query('select dnix from usuariox where dnix="' . $dni . '";');
 if ($check_dni->rowCount() > 0) {
-    echo "!OOPSSS OCURRIO UN ERROR!,El DNI ya esta registrado,error";
+    $response = array("status" => "error", "message" => "¡El DNI ya esta registrado!");
+    echo json_encode($response);
     exit();
 }
 $check_dni = null;
 
 #guardando datos
+try {
+    $guardar_usux = $start->Conexiondb();
+    $guardar_usux = $guardar_usux->prepare('INSERT INTO usux VALUES 
+                                            (:idu,:usu,:clv,:estado)');
 
-$guardar_paciente = $start->Conexiondb();
+    $maxmarcado = [
+        ":idu" => "DEFAULT",
+        ":usu" => $usu,
+        ":clv" => $clave,
+        ":estado" => '1'
 
-$guardar_paciente = $guardar_paciente->prepare('INSERT INTO paciente VALUES 
-(:id,:nom,:apel,:dni,:esci,:fecnac,:domicilio,:ocupacion,:lateral,:cel)');
+    ];
+    $guardar_usux->execute($maxmarcado);
+
+    if ($guardar_usux->rowCount() == 1) {
+
+        $check_max = $start->Conexiondb();
+        $check_max = $check_max->query('select max(idusux) from usux');
+        $ultimousuario = $check_max->fetch(PDO::FETCH_COLUMN);
+
+        $guardar_usuario = $start->Conexiondb();
+
+        $guardar_usuario = $guardar_usuario->prepare('INSERT INTO usuariox VALUES 
+    (:id,:dni,:apel,:nom,:unix,:facux,:escux,:cel, :dire, :correo,:foto,DEFAULT,:idusuario)');
+
+        $marcadofinal = [
+            ":id" => 'DEFAULT',
+            ":dni" => $dni,
+            ":apel" => $apellidos,
+            ":nom" => $nombres,
+            ":unix" => $universidad,
+            ":facux" => $facu,
+            ":escux" => $escuela,
+            ":cel" => $celular,
+            ":dire" => $dire,
+            ":correo" => $email,
+            ":foto" => null,
+            ":idusuario" => $ultimousuario
+        ];
+
+        $guardar_usuario->execute($marcadofinal);
 
 
-$maxmarcado = [
-    ":id" => 'DEFAULT',
-    ":nom" => $nombres,
-    ":apel" => $apellidos,
-    ":dni" => $dni,
-    ":esci" => 'ninguno',
-    ":fecnac" => $fecnac,
-    ":domicilio" => 'ninguno',
-    ":ocupacion" => $ocupacion,
-    ":lateral" => 'ninguno',
-    ":cel" => $celular
-];
 
-$guardar_paciente->execute($maxmarcado);
-
-if ($guardar_paciente->rowCount() == 1) {
-    echo "!REGISTRADO!,Es paciente se registro correctamente,success";
-} else {
-    echo "!OOPSSS OCURRIO UN ERROR!,No se pudo registrar al paciente intentelo nuevamente,error";
+        if ($guardar_usuario->rowCount() == 1) {
+            $response = array("status" => "success", "message" => "¡Se registro correctamente!");
+            echo json_encode($response);
+            exit();
+        } else {
+            throw new PDOException("Error al registrar en usux");
+        }
+    } else {
+        throw new PDOException("Error al registrar en usuario");
+    }
+} catch (PDOException $e) {
+    $response = array("status" => "error", "message" => "Error: " . $e->getMessage());
+    echo json_encode($response);
+    exit();
 }
-$guardar_paciente=null;

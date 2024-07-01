@@ -66,19 +66,19 @@ function renombrar_fotos($nombre){
 
 // funcion paginador de tablas
 function paginador_tablas($pagina, $npaginas,$url,$botones){
-    $tabla='<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">';
+    $tabla='<nav class="my-pagination centered rounded" role="navigation" aria-label="pagination">';
 
         //boton anterior
         if($pagina<=1){
             $tabla.='
-            <a class="pagination-previous is-disable" disabled >Anterior</a>
-            <ul class="pagination-list">
+            <a class="prev-button disabled" disabled >Anterior</a>
+            <ul class="pagination-items">
             ';
         }else{
-            $tabla.='<a class="pagination-previous" href="'.$url.($pagina-1).'">Anterior</a>;
-            <ul class="pagination-list">
-                <li><a class="pagination-link" href="'.$url.'1">1</a></li>
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
+            $tabla.='<a class="prev-button" href="'.$url.($pagina-1).'">Anterior</a>;
+            <ul class="pagination-items">
+                <li><a class="page-link" href="'.$url.'1">1</a></li>
+                <li><span class="page-ellipsis">&hellip;</span></li>
             ';
         }
 
@@ -90,9 +90,9 @@ function paginador_tablas($pagina, $npaginas,$url,$botones){
                 break;
             }
             if($pagina==$i){
-                $tabla.='<li><a class="pagination-link is-current" href="'.$url.$i.'">'.$i.'</a></li>';
+                $tabla.='<li><a class="page-link" href="'.$url.$i.'">'.$i.'</a></li>';
             }else{
-                $tabla.='<li><a class="pagination-link" href="'.$url.$i.'">'.$i.'</a></li>';
+                $tabla.='<li><a class="page-link" href="'.$url.$i.'">'.$i.'</a></li>';
             }
 
             $contadori++;
@@ -102,14 +102,14 @@ function paginador_tablas($pagina, $npaginas,$url,$botones){
         if($pagina==$npaginas){
             $tabla.='
             </ul>
-            <a class="pagination-next is-disabled" disabled >Siguiente</a>
+            <a class="next-button disabled" disabled >Siguiente</a>
             ';
         }else{
             $tabla.='
-                <li><span class="pagination-ellipsis">&hellip;</span></li>
-                <li><a class="pagination-link" href="'.$url.$npaginas.'">'.$npaginas.'</a></li>
+                <li><span class="page-ellipsis">&hellip;</span></li>
+                <li><a class="page-link" href="'.$url.$npaginas.'">'.$npaginas.'</a></li>
             </ul>
-            <a class="pagination-next" href="'.$url.($pagina+1).'">Siguiente</a>
+            <a class="next-button" href="'.$url.($pagina+1).'">Siguiente</a>
             ';
         }
 

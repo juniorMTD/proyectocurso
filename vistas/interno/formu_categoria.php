@@ -26,11 +26,11 @@
                                     if(isset($_POST['modulo_buscador'])){
                                         require_once "./php/buscador.php";
                                     }
-                                    if (!isset($_SESSION['busqueda_personal']) && empty($_SESSION['busqueda_personal'])) {
+                                    if (!isset($_SESSION['busqueda_categoria']) && empty($_SESSION['busqueda_categoria'])) {
                                 ?>
                                     <div class="x_title">
                                         <form action="" method="POST" autocomplete="off" class="custom-search-form">
-                                            <input type="hidden" name="modulo_buscador" value="personal">
+                                            <input type="hidden" name="modulo_buscador" value="categoria">
                                             <div class="custom-field custom-has-addons">
                                                 <div class="custom-control custom-is-expanded">
                                                     <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" 
@@ -66,9 +66,9 @@
                                     <div class="columns">
                                         <div class="column">
                                             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off">
-                                                <input type="hidden" name="modulo_buscador" value="personal">
-                                                <input type="hidden" name="eliminar_buscador" value="personal">
-                                                <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busqueda_personal'] ?>"</strong></p>
+                                                <input type="hidden" name="modulo_buscador" value="categoria">
+                                                <input type="hidden" name="eliminar_buscador" value="categoria">
+                                                <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busqueda_categoria'] ?>"</strong></p>
                                                 <br>
                                                 <button class="custom-button custom-is-danger" type="submit">Eliminar Busqueda</button>
                                             </form>
@@ -77,7 +77,7 @@
 
                                     <?php
 
-                                        //para eliminar personal
+                                        //para eliminar categoria
 
                                         if(!isset($_GET['page'])){
                                             $pagina= 1;
