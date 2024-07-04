@@ -1,6 +1,6 @@
 <div class="registration">
     <div class="registration-container">
-        <form id="registration-form" action="./php/usuario_web.php" method="POST" >
+        <form id="registration-form" action="./php/usuario_web.php" method="POST" data-redirect-url="./index.php?mostrar=pag">
             <h2>REGISTRO A TERRA CIVIL</h2>
             
             <!-- mensaje de alerta -->

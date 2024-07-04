@@ -4,12 +4,9 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from consulta c inner join paciente p on c.idpaciente=p.idpaciente
-    inner join usuario u on c.idusuario=u.idusuario where c.idpaciente='$id' and c.fecha like '%$busqueda%'
-    ORDER BY c.idconsulta DESC LIMIT 0,$registros";
+    $consulta_datos="select * from categoriax c where  c.nomx like '%$busqueda%' order by c.idcategoriax desc limit 0,$registros";
 
-    $consulta_total="select count(idconsulta) from consulta c inner join paciente p on c.idpaciente=p.idpaciente
-    inner join usuario u on c.idusuario=u.idusuario where c.idpaciente='$id' and c.fecha like '%$busqueda%'";
+    $consulta_total="select count(c.idcategoriax) from categoriax c where  c.nomx like '%$busqueda%'";
 }else{
     $consulta_datos="select * from categoriax C ORDER BY C.idcategoriax DESC LIMIT 0,$registros";
 

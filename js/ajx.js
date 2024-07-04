@@ -106,6 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // Obtener los datos del formulario
         let formData = new FormData(this);
 
+        // Obtener la URL de redirección del atributo de datos
+        let redirectUrl = this.getAttribute('data-redirect-url');
+
         // Realizar la petición AJAX
         fetch(this.action, {
             method: 'POST',
@@ -127,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     showConfirmButton: true,
                     // timer: 2500
                 }).then(() => {
-                    window.location.href = './index.php?mostrar=pag'; // Redireccionar a la página deseada
+                    window.location.href = redirectUrl; // Redireccionar a la página deseada
                 });
             } else {
                 Swal.fire({

@@ -3,12 +3,12 @@ ob_start();
     // $paciente_id=limpiar_cadena($_POST['paciente_id']);
     
     $modulo_buscador=limpiar_cadena($_POST['modulo_buscador']);
-    $modulos=["categoria"];  //cadena para los diferentes modulos de busqueda
+    $modulos=["categoria","curso"];  //cadena para los diferentes modulos de busqueda
 
     if(in_array($modulo_buscador,$modulos)){
         $modulos_url=[
-            "categoria"=>"formu_categoria"
-            // "paciente"=>"paciente_form",
+            "categoria"=>"formu_categoria",
+            "curso"=>"formu_curso"
             // "consulta"=>"consulta_form",
             // "historiaantigua"=>"historial_form_antiguo",
             // "historiapaciente"=>"historia_consulta_form&idpaciente_form_lista=$paciente_id",
@@ -30,7 +30,6 @@ ob_start();
                         Introducir un termino de busqueda
                         </div>';
             }else{
-
                     $_SESSION[$modulo_buscador]=$txt;
                     header("Location: index.php?mostrar=$modulos_url",true,303);
                     exit();

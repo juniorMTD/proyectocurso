@@ -66,7 +66,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="./biblioteca/images/img.jpg" alt=""><?php echo $_SESSION['nombres']." ".$_SESSION['apellidos'] ?>
+                    <img src="./biblioteca/images/img.jpg" alt=""><?php ob_start(); echo $_SESSION['nombres']." ".$_SESSION['apellidos']?>
                     <span class="fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
