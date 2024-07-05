@@ -1,13 +1,28 @@
 <?php
     require_once "./conexion/conexion_db.php";
     require_once "./php/main.php";
+
+    $id = (isset($_GET['idtemax'])) ? $_GET['idtemax'] : 0;
+
+    $id=limpiar_cadena($id);
+    echo $id;
+
+    $start = new Conexion();
+    $check_consulta = $start->Conexiondb();
+    $check_consulta=$check_consulta->query("select * from temax t  inner join cursox cu ON
+    t.idcursox=cu.idcursox inner join categoriax ca on cu.idcategoriax=ca.idcategoriax 
+    where t.idtemax='$id';");
+    
+    if($check_consulta->rowCount()>0){
+        $datos=$check_consulta->fetch();
+
 ?>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
     <div >
         <h3>RECURSOS</h3>
-        <strong>Lista de Recursos del Tema </strong>
+        <strong>Lista de Recursos del <?php echo $datos['temx']?> </strong>
         <hr>
         <a href="index.html" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR RECURSOS</a>
         <hr>
@@ -108,3 +123,11 @@
     </div>
 </div>
 <!-- /page content -->
+
+<?php
+		}else{
+			include "./inc/error_alert.php";
+		}
+		
+		$check_consulta=null;
+	?>

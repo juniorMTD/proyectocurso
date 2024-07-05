@@ -4,9 +4,9 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from cursox cu inner join categoriax ca on cu.idcategoriax=ca.idcategoriax where  ca.nomx like '%$busqueda%' or cu.docente like '%$busqueda%' order by cu.idcursox desc limit 0,$registros";
+    $consulta_datos="select * from cursox cu inner join categoriax ca on cu.idcategoriax=ca.idcategoriax where  ca.nomx like '%$busqueda%' or cu.docentex like '%$busqueda%' order by cu.idcursox desc limit 0,$registros";
 
-    $consulta_total="select count(cu.idcursox) from cursox cu inner join categoriax ca on cu.idcategoriax=ca.idcategoriax where  ca.nomx like '%$busqueda%' or cu.docente like '%$busqueda%'";
+    $consulta_total="select count(cu.idcursox) from cursox cu inner join categoriax ca on cu.idcategoriax=ca.idcategoriax where  ca.nomx like '%$busqueda%' or cu.docentex like '%$busqueda%'";
 }else{
     $consulta_datos="select * from cursox cu inner join categoriax ca on cu.idcategoriax=ca.idcategoriax ORDER BY cu.idcursox DESC LIMIT 0,$registros";
 
@@ -58,9 +58,10 @@ if($total>=1 && $pagina<=$npaginas){
             <tr class="even pointer">
                 <td class=" ">'.$contador.'</td>
                 <td class=" ">'.$rows['nombre'].'</td>
+                <td class=" ">'.$rows['nomx'].'</td>
                 <td class=" ">'.$rows['docentex'].'</td>
                 <td class=" ">'.$rows['celularx'].'</td>
-                <td class=" ">'.($rows['estadox'] == 1) ? 'Activo' : 'Inactivo'.'</td>
+                <td class=" ">'.(($rows['estadox'] == 1) ? 'Activo' : 'Inactivo').'</td>
                 <td class=" last"><a type="button" class="btn btn-primary" href="#"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><a type="button" class="btn btn-danger" href="#"><i class="fa fa-trash"></i> Eliminar</a></td>
             </tr>

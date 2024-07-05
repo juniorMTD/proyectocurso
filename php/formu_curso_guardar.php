@@ -7,13 +7,13 @@ $start = new Conexion();
 
 $nombre = limpiar_cadena($_POST['curso']);
 $catego = limpiar_cadena($_POST['categoria']);
-$estado = limpiar_cadena($_POST['estado']);
+$estado = limpiar_cadena($_POST['estado']??'0');
 $docente= limpiar_cadena($_POST['docente']);
 $celular = limpiar_cadena($_POST['celular']);
 
 
 #validar los campos vacios
-if (empty($nombre) || empty($catego)|| empty($estado)|| empty($docente)|| empty($celular)) {
+if (empty($nombre) || empty($catego)|| empty($docente)|| empty($celular)) {
     $response = array("status" => "error", "message" => "¡Los datos con (*) son  obligatorio!");
     echo json_encode($response);
     exit();
@@ -42,15 +42,14 @@ if (verificar_datos("[0-9]{9}", $celular)) {
 }
 
 
-
 #verificar las validaciones de duplicado de datos
 $check_nombre = $start->Conexiondb();
 $check_nombre = $check_nombre->query('select nombre from cursox where nombre="' . $nombre . '";');
 if ($check_nombre->rowCount() > 0) {
     $response = array("status" => "error", "message" => "¡El nombre del curso ya existe!");
     echo json_encode($response);
+    exit();
 }
-$check_nombre = null;
 
 #guardando datos
 try {

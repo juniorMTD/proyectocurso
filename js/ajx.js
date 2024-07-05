@@ -100,6 +100,7 @@
 /* nuevo js */
 
 document.addEventListener('DOMContentLoaded', function () {
+
     document.querySelector('#registration-form').addEventListener('submit', function (e) {
         e.preventDefault(); // Prevenir el envío del formulario por defecto
 
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             return response.json();
         })
-        .then(data => {
+        .then(data => {           
             if (data.status === 'success') {
                 Swal.fire({
                     icon: 'success',
@@ -150,4 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+
+
 
