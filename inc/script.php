@@ -7,30 +7,26 @@
     <script src="./plugins/bootstrap/dist/js/bootstrap.min.js"></script>    
     <!-- Custom Theme Scripts -->
     <script src="./js/custom.min.js"></script>
+    <script src="./js/select2.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        $(document).ready(function() {
+            function formatState (state) {
+                if (!state.id) {
+                    return state.text;
+                }
+                var baseUrl = state.element.getAttribute('data-icon');
+                var $state = $(
+                    '<span><img src="./biblioteca/images/icon/' + baseUrl + '" class="img-flag" /> ' + state.text + '</span>'
+                );
+                return $state;
+            };
 
-            // Get all "navbar-burger" elements
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-
-            // Add a click event on each of them
-            $navbarBurgers.forEach(el => {
-                el.addEventListener('click', () => {
-
-                    // Get the target from the "data-target" attribute
-                    const target = el.dataset.target;
-                    const $target = document.getElementById(target);
-
-                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-                    el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-
-                });
+            $("#icon-select").select2({
+                templateResult: formatState,
+                templateSelection: formatState
             });
-
-        });
-        
+        });      
     </script>
 
 

@@ -35,7 +35,7 @@ $tabla.='
 
 <div class="x_content">
     <div class="table-responsive">
-        <table class="table table-striped jambo_table bulk_action">
+        <table id="delete-form" class="table table-striped jambo_table bulk_action">
             <thead>
             <tr class="headings">
                 <th class="column-title">Numero</th>
@@ -65,8 +65,8 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$rows['curso'].'</td>
                 <td class=" ">'.$rows['tema'].'</td>
                 <td class=" ">'.(($rows['esta'] == 1) ? 'Activo' : 'Inactivo').'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="#"><i class="fa fa-edit"></i> Editar</a></td>
-                <td class=" last"><a type="button" class="btn btn-danger" href="#"><i class="fa fa-trash"></i> Eliminar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_tema_update&id_update='.$rows['id'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_tema_eliminar.php?id_delete='.$rows['id'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
                 <td class=" last"><a type="button" class="btn btn-warning" href="./index.php?mostrar=formu_recurso&idtemax='.$rows['id'].'"><i class="fa fa-book"></i> Recursos</a></td>
             </tr>
             ';
@@ -103,7 +103,7 @@ $tabla.='
 
     if($total>=1 && $pagina<=$npaginas){
         $tabla.='
-    <p class="has-text-right">Mostrando cursos <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>	
+    <p class="has-text-right">Mostrando temas <strong>"'.$pag_inicio.'"</strong> al <strong>"'.$pag_final.'"</strong> de un <strong>total de '.$total.'</strong></p>	
     ';
 }
 

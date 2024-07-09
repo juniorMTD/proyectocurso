@@ -30,7 +30,7 @@ $tabla.='
 
 <div class="x_content">
     <div class="table-responsive">
-        <table class="table table-striped jambo_table bulk_action">
+        <table id="delete-form" class="table table-striped jambo_table bulk_action">
             <thead>
             <tr class="headings">
                 <th class="column-title">Numero</th>
@@ -62,8 +62,8 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$rows['docentex'].'</td>
                 <td class=" ">'.$rows['celularx'].'</td>
                 <td class=" ">'.(($rows['estadox'] == 1) ? 'Activo' : 'Inactivo').'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="#"><i class="fa fa-edit"></i> Editar</a></td>
-                <td class=" last"><a type="button" class="btn btn-danger" href="#"><i class="fa fa-trash"></i> Eliminar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_curso_update&id_update='.$rows['idcursox'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_curso_eliminar.php?id_delete='.$rows['idcursox'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>
             ';
             $contador++;

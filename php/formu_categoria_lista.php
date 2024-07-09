@@ -30,7 +30,7 @@ $tabla.='
 
 <div class="x_content">
     <div class="table-responsive">
-        <table class="table table-striped jambo_table bulk_action">
+        <table id="delete-form" class="table table-striped jambo_table bulk_action">
             <thead>
             <tr class="headings">
                 <th class="column-title">Numero</th>
@@ -56,8 +56,8 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$contador.'</td>
                 <td class=" ">'.$rows['nomx'].'</td>
                 <td class=" ">'.$rows['descx'].'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="#"><i class="fa fa-edit"></i> Editar</a></td>
-                <td class=" last"><a type="button" class="btn btn-danger" href="#"><i class="fa fa-trash"></i> Eliminar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_categoria_update&id_update='.$rows['idcategoriax'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_categoria_eliminar.php?id_delete='.$rows['idcategoriax'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>
             ';
             $contador++;

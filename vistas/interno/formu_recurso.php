@@ -5,7 +5,6 @@
     $id = (isset($_GET['idtemax'])) ? $_GET['idtemax'] : 0;
 
     $id=limpiar_cadena($id);
-    echo $id;
 
     $start = new Conexion();
     $check_consulta = $start->Conexiondb();
@@ -24,8 +23,10 @@
         <h3>RECURSOS</h3>
         <strong>Lista de Recursos del <?php echo $datos['temx']?> </strong>
         <hr>
-        <a href="index.html" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR RECURSOS</a>
+        <?php echo '<a href="./index.php?mostrar=formu_recurso_new&idtex='.$id.'" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR RECURSOS</a>' ?>
+        <a href="./index.php?mostrar=formu_tema" type="button" class="custom-btn custom-btn-secondary"><i class="fa fa-return"></i> SALIR</a>
         <hr>
+
         
     </div>
     <div class="clearfix"></div>
@@ -72,8 +73,8 @@
                                         }
                                         $pagina = limpiar_cadena($pagina);
                                         $url= "index.php?mostrar=formu_recurso&page=";
-                                        $registros = 15;
-                                        // $busqueda = $_SESSION['busqueda_categoria'];
+                                        $registros = 10;
+                                        $busqueda = '';
 
                                         require_once "./php/formu_recurso_lista.php";
                                     } else {
@@ -104,8 +105,8 @@
                                         }
                                         $pagina = limpiar_cadena($pagina);
                                         $url= "index.php?mostrar=formu_recurso&page=";
-                                        $registros = 15;
-                                        // $busqueda = $_SESSION['busqueda_categoria'];
+                                        $registros = 10;
+                                        $busqueda = $_SESSION['busqueda_categoria'];
 
                                         require_once "./php/formu_recurso_lista.php";
                                     }

@@ -5,6 +5,23 @@ require_once "./main.php";
 
 $start = new Conexion();
 
+$id=limpiar_cadena($_POST['idcu']);
+
+$check_curso = $start->Conexiondb();
+$check_curso=$check_curso->query("SELECT * FROM cursox where idcursox='$id'");
+
+if($check_curso->rowCount()<=0){
+
+    $response = array("status" => "error", "message" => "¡No existe el tema!");
+    echo json_encode($response);
+    exit();
+}else{
+    $datos=$check_curso->fetch();
+}
+
+$check_curso=null;
+
+
 $nombre = limpiar_cadena($_POST['curso']);
 $catego = limpiar_cadena($_POST['categoria']);
 $estado = isset($_POST['estado']) ? limpiar_cadena($_POST['estado']) : 0;
@@ -43,24 +60,25 @@ if (verificar_datos("[0-9]{9}", $celular)) {
 
 
 #verificar las validaciones de duplicado de datos
-$check_nombre = $start->Conexiondb();
-$check_nombre = $check_nombre->query('select nombre from cursox where nombre="' . $nombre . '";');
-if ($check_nombre->rowCount() > 0) {
-    $response = array("status" => "error", "message" => "¡El nombre del curso ya existe!");
-    echo json_encode($response);
-    exit();
+
+if($nombre!=$datos['nombre']){
+    $check_nombre = $start->Conexiondb();
+    $check_nombre = $check_nombre->query('select nombre from cursox where nombre="' . $nombre . '";');
+    if ($check_nombre->rowCount() > 0) {
+        $response = array("status" => "error", "message" => "¡El nombre del curso ya existe!");
+        echo json_encode($response);
+        exit();
+    }
 }
 
-#guardando datos
+#actualizando datos
 try {
-    $guardar_curso = $start->Conexiondb();
+    $actualizar_curso = $start->Conexiondb();
 
-    $guardar_curso = $guardar_curso->prepare('INSERT INTO cursox VALUES 
-(:id,:nom,:doc,:cel,:esta,:idcat)');
+    $actualizar_curso = $actualizar_curso->prepare('UPDATE cursox set nombre=:nom,docentex=:doc,celularx=:cel,estadox=:esta,idcategoriax=:idcat where idcursox="'.$id.'"');
 
 
     $maxmarcado = [
-        ":id" => 'DEFAULT',
         ":nom" => $nombre,
         ":doc" => $docente,
         ":cel" => $celular,
@@ -68,15 +86,13 @@ try {
         ":idcat" => $catego
     ];
 
-    $guardar_curso->execute($maxmarcado);
-
-    if ($guardar_curso->rowCount() == 1) {
-        $response = array("status" => "success", "message" => "¡Se registro correctamente!");
+    if ($actualizar_curso->execute($maxmarcado)) {
+        $response = array("status" => "success", "message" => "¡Se actualizo correctamente!");
         echo json_encode($response);
     } else {
         throw new PDOException("Error al registrar la categoria");
     }
-    $guardar_curso = null;
+    $actualizar_curso = null;
 } catch (PDOException $e) {
     $response = array("status" => "error", "message" => "Error: " . $e->getMessage());
     echo json_encode($response);

@@ -7,6 +7,25 @@ $response = array();
 
 $start = new Conexion();
 
+
+$id=limpiar_cadena($_POST['idtema']);
+
+$check_tema = $start->Conexiondb();
+$check_tema=$check_tema->query("SELECT * FROM temax where idtemax='$id'");
+
+if($check_tema->rowCount()<=0){
+
+    $response = array("status" => "error", "message" => "¡No existe el curso!");
+    echo json_encode($response);
+    exit();
+}else{
+    $datos=$check_tema->fetch();
+}
+
+$check_tema=null;
+
+
+
 $tema = limpiar_cadena($_POST['tema']);
 $estado = isset($_POST['estado']) ? limpiar_cadena($_POST['estado']) : 0;;
 $curso = limpiar_cadena($_POST['curso']);
@@ -35,33 +54,33 @@ if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $tema)) {
 
 
 #verificar las validaciones de duplicado de datos
-$check_nombre = $start->Conexiondb();
-$check_nombre = $check_nombre->query('select temx from temax where temx="' . $tema. '";');
-if ($check_nombre->rowCount() > 0) {
-    $response = array("status" => "error", "message" => "¡El nombre del tema ya existe!");
-    echo json_encode($response);
-    exit();
+if($tema!=$datos['temx']){
+    $check_nombre = $start->Conexiondb();
+    $check_nombre = $check_nombre->query('select temx from temax where temx="' . $tema. '";');
+    if ($check_nombre->rowCount() > 0) {
+        $response = array("status" => "error", "message" => "¡El nombre del tema ya existe!");
+        echo json_encode($response);
+        exit();
+    }
 }
 
 
-#guardando datos
+#actualizando datos
 try {
     $guardar_tema = $start->Conexiondb();
-    $guardar_tema = $guardar_tema->prepare('INSERT INTO temax VALUES 
-(:id,:nom,:estado,:idcurso)');
+    $guardar_tema = $guardar_tema->prepare('UPDATE temax SET temx=:nom,estadox=:estado,idcursox=:idcurso where idtemax="'.$id.'"');
 
 
     $maxmarcado = [
-        ":id" => 'DEFAULT',
         ":nom" => $tema,
         ":estado" => $estado,
         ":idcurso" => $curso
     ];
 
-    $guardar_tema->execute($maxmarcado);
+    ;
 
-    if ($guardar_tema->rowCount() == 1) {
-        $response = array("status" => "success", "message" => "¡Se registro correctamente!");
+    if ($guardar_tema->execute($maxmarcado)) {
+        $response = array("status" => "success", "message" => "¡Se actualizo correctamente!");
         echo json_encode($response);
     } else {
         throw new PDOException("Error al registrar la tema");
