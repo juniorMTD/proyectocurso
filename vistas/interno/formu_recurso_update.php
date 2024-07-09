@@ -53,7 +53,15 @@ $ruta_archivo = './biblioteca/images/archivos_recursos/'.$datos1['recurso'];
 
 
                 <input type="hidden" value="<?php echo $datos1['idrecursox']; ?>" name="idrecurso" required>
-               
+                
+                <div class="custom-form-row">
+                    <div class="custom-form-group">
+                        <label for="custom-nomrecur">Nombre del Recurso (*)</label>
+                        <input type="text"  name="nomrecur" class="custom-form-control" value="<?php echo htmlspecialchars($datos1['nom_recu'], ENT_QUOTES, 'UTF-8'); ?>">
+                    </div>
+                    <div class="custom-form-group"></div>
+                </div>
+
                 <div class="custom-form-row">
                     <div class="custom-form-group">
                         <label for="custom-recurso">Suba el recurso (*)</label>

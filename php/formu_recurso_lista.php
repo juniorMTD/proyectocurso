@@ -41,6 +41,7 @@ $tabla.='
             <thead>
             <tr class="headings">
                 <th class="column-title">Numero</th>
+                <th class="column-title">Nombre</th>
                 <th class="column-title">Tipo de recurso</th>
                 <th class="column-title">Recurso</th>
                 <th class="column-title">Icono</th>
@@ -63,6 +64,7 @@ if($total>=1 && $pagina<=$npaginas){
         $tabla.='
             <tr class="even pointer">
                 <td class=" ">'.$contador.'</td>
+                <td class=" ">'.$rows['nom_recu'].'</td>
                 <td class=" ">'.$rows['tipox'].'</td>
                 <td class=" "><a href="./biblioteca/images/archivos_recursos/' . htmlspecialchars($rows['recurso']) . '" download>'.$rows['recurso'].'</a></td>
                 <td class=" ">';

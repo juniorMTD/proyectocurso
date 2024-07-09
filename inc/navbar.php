@@ -29,6 +29,9 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
+                  <li>
+                    <a href="./index.php?mostrar=frmnotificaciones"><i class="fa fa-edit"></i> Notificaciones </a>
+                  </li>
                   <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Perfil</a></li>
@@ -39,6 +42,9 @@
                       <li><a href="./index.php?mostrar=frmprincipal">Categoria</a></li>
                     </ul>
                   </li>
+                  <li>
+                    <a href="./index.php?mostrar=frmsugerencia"><i class="fa fa-edit"></i> Sugerencias </a>
+                  </li>
                   <li><a><i class="fa fa-desktop"></i> Gestion <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="./index.php?mostrar=formu_categoria">Categorias</a></li>
@@ -46,6 +52,8 @@
                       <li><a href="./index.php?mostrar=formu_tema">Temas</a></li>
                       <li><a href="./index.php?mostrar=formu_matricula">Matricula</a></li>
                       <li><a href="./index.php?mostrar=formu_usuario">Usuarios</a></li>
+                      <li><a href="./index.php?mostrar=formu_sugerencias">Sugerencias</a></li>
+                      <li><a href="./index.php?mostrar=formu_notificaciones">Notificaciones</a></li>
                     </ul>
                   </li>
                 </ul>

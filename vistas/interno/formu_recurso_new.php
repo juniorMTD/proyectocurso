@@ -50,7 +50,14 @@ $tema=$tema->fetchAll();
                 <div>
                     <input type="hidden" name="idtex" value="<?php echo $id ?>" >
                 </div>
-
+                
+                <div class="custom-form-row">
+                    <div class="custom-form-group">
+                        <label for="custom-nomrecur">Nombre del Recurso (*)</label>
+                        <input type="text"  name="nomrecur" class="custom-form-control">
+                    </div>
+                    <div class="custom-form-group"></div>
+                </div>
                 <div class="custom-form-row">
                     <div class="custom-form-group">
                         <label for="custom-recurso">Suba el recurso (*)</label>

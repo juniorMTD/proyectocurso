@@ -3,13 +3,15 @@ ob_start();
     // $paciente_id=limpiar_cadena($_POST['paciente_id']);
     
     $modulo_buscador=limpiar_cadena($_POST['modulo_buscador']);
-    $modulos=["categoria","curso","tema"];  //cadena para los diferentes modulos de busqueda
+    $modulos=["categoria","curso","tema","recurso","sugerencia"];  //cadena para los diferentes modulos de busqueda
 
     if(in_array($modulo_buscador,$modulos)){
         $modulos_url=[
             "categoria"=>"formu_categoria",
             "curso"=>"formu_curso",
-            "tema"=>"formu_tema"
+            "tema"=>"formu_tema",
+            "recurso"=>"formu_recurso",
+            "sugerencia"=>"formu_sugerencias"
             // "consulta"=>"consulta_form",
             // "historiaantigua"=>"historial_form_antiguo",
             // "historiapaciente"=>"historia_consulta_form&idpaciente_form_lista=$paciente_id",

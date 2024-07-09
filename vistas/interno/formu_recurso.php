@@ -42,11 +42,11 @@
                                     if(isset($_POST['modulo_buscador'])){
                                         require_once "./php/buscador.php";
                                     }
-                                    if (!isset($_SESSION['busqueda_personal']) && empty($_SESSION['busqueda_personal'])) {
+                                    if (!isset($_SESSION['busqueda_recurso']) && empty($_SESSION['busqueda_recurso'])) {
                                 ?>
                                     <div class="x_title">
                                         <form action="" method="POST" autocomplete="off" class="custom-search-form">
-                                            <input type="hidden" name="modulo_buscador" value="personal">
+                                            <input type="hidden" name="modulo_buscador" value="recurso">
                                             <div class="custom-field custom-has-addons">
                                                 <div class="custom-control custom-is-expanded">
                                                     <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" 
@@ -82,9 +82,9 @@
                                     <div class="columns">
                                         <div class="column">
                                             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off">
-                                                <input type="hidden" name="modulo_buscador" value="personal">
-                                                <input type="hidden" name="eliminar_buscador" value="personal">
-                                                <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busqueda_personal'] ?>"</strong></p>
+                                                <input type="hidden" name="modulo_buscador" value="recurso">
+                                                <input type="hidden" name="eliminar_buscador" value="recurso">
+                                                <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busqueda_recurso'] ?>"</strong></p>
                                                 <br>
                                                 <button class="custom-button custom-is-danger" type="submit">Eliminar Busqueda</button>
                                             </form>
@@ -93,7 +93,7 @@
 
                                     <?php
 
-                                        //para eliminar personal
+                                        //para eliminar recurso
 
                                         if(!isset($_GET['page'])){
                                             $pagina= 1;
@@ -106,7 +106,7 @@
                                         $pagina = limpiar_cadena($pagina);
                                         $url= "index.php?mostrar=formu_recurso&page=";
                                         $registros = 10;
-                                        $busqueda = $_SESSION['busqueda_categoria'];
+                                        $busqueda = $_SESSION['busqueda_recurso'];
 
                                         require_once "./php/formu_recurso_lista.php";
                                     }

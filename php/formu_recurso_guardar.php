@@ -5,19 +5,24 @@ require_once "./main.php";
 
 $start = new Conexion();
 
+$nom_re = limpiar_cadena($_POST['nomrecur']);
 $idtem = limpiar_cadena($_POST['idtex']);
 $tipo_re = limpiar_cadena($_POST['tipo_recurso']);
 $icono= limpiar_cadena($_POST['icono']);
 
 
 #validar los campos vacios
+if (empty($nom_re)) {
+    $response = array("status" => "error", "message" => "¡El nombre es obligatorio!");
+    echo json_encode($response);
+    exit();
+}
 
 if (!isset($_FILES['recurso']) || $_FILES['recurso']['error'] != UPLOAD_ERR_OK) {
     $response = array("status" => "error", "message" => "¡Seleccione un archivo, es obligatorio!");
     echo json_encode($response);
     exit();
 }
-
 
 if (empty($tipo_re)) {
     $response = array("status" => "error", "message" => "¡Seleccione el tipo de recurso es obligatorio!");
@@ -73,11 +78,12 @@ try {
     $guardar_recurso = $start->Conexiondb();
 
     $guardar_recurso = $guardar_recurso->prepare('INSERT INTO recursox VALUES 
-(:id,:recu,DEFAULT,:ico,:idtr,:idtema)');
+(:id,:nom,:recu,DEFAULT,:ico,:idtr,:idtema)');
 
 
     $maxmarcado = [
         ":id" => 'DEFAULT',
+        ":nom" => $nom_re,
         ":recu" => $recurso,
         ":ico" => $icono,
         ":idtr" => $tipo_re,
