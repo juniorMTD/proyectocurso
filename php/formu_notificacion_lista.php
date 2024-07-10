@@ -4,16 +4,16 @@ $inicio=($pagina>0) ? (($pagina*$registros)-$registros) : 0;
 $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
-    $consulta_datos="select * from sugerenciax s inner join usux u on s.idusux=u.idusux inner join usuariox usu on usu.idusux=u.idusux 
-    where  usu.dnix like '%$busqueda%' or u.usux like '%$busqueda%' order by s.idsugerenciax desc limit 0,$registros";
+    $consulta_datos="select * from notificacionx n inner join usux u on n.idusux=u.idusux 
+where  n.titulo like '%$busqueda%' order by n.fec desc limit 0,$registros";
 
-    $consulta_total="select count(s.idsugerenciax) from sugerenciax s inner join usux u on s.idusux=u.idusux inner join usuariox usu on usu.idusux=u.idusux 
-    where  usu.dnix like '%$busqueda%' or u.usux like '%$busqueda%';";
+    $consulta_total="select count(n.idnotificacionx) from notificacionx n inner join usux u on n.idusux=u.idusux 
+where  n.titulo like '%$busqueda%';";
 }else{
-    $consulta_datos="select * from sugerenciax s inner join usux u on s.idusux=u.idusux inner join usuariox usu on usu.idusux=u.idusux 
-    order by s.idsugerenciax desc limit 0,$registros";
+    $consulta_datos="select * from notificacionx n inner join usux u on n.idusux=u.idusux 
+    order by n.fec desc limit 0,$registros";
 
-    $consulta_total="select count(s.idsugerenciax) from sugerenciax s inner join usux u on s.idusux=u.idusux inner join usuariox usu on usu.idusux=u.idusux";
+    $consulta_total="select count(n.idnotificacionx) from notificacionx n inner join usux u on n.idusux=u.idusux;";
 }
 
 $start = new Conexion();
@@ -37,11 +37,11 @@ $tabla.='
             <thead>
             <tr class="headings">
                 <th class="column-title">Numero</th>
-                <th class="column-title">Sugerencia</th>
-                <th class="column-title">Usuario</th>
-                <th class="column-title">DNI</th>
+                <th class="column-title">Titulo</th>
+                <th class="column-title">Mensaje</th>
                 <th class="column-title">Estado</th>
                 <th class="column-title">Fecha</th>
+                <th class="column-title">Usuario</th>
                 <th colspan="2" class="column-title"><span class="nobr">Accion</span>
                 </th>
             </tr>
@@ -60,13 +60,13 @@ if($total>=1 && $pagina<=$npaginas){
         $tabla.='
             <tr class="even pointer">
                 <td class=" ">'.$contador.'</td>
-                <td class=" ">'.$rows['descx'].'</td>
+                <td class=" ">'.$rows['titulo'].'</td>
+                <td class=" ">'.$rows['mensaje'].'</td>
+                <td class=" ">'.(($rows['leido'] == 1) ? 'Leido' : 'No leido').'</td>
+                <td class=" ">'.$rows['fec'].'</td>
                 <td class=" ">'.$rows['usux'].'</td>
-                <td class=" ">'.$rows['dnix'].'</td>
-                <td class=" ">'.(($rows['estado_segu'] == 1) ? 'No Leido' : 'Leido').'</td>
-                <td class=" ">'.$rows['f_registro'].'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_sugerencia_update&id_update='.$rows['idsugerenciax'].'"><i class="fa fa-edit"></i> Editar</a></td>
-                <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_sugerencia_eliminar.php?id_delete='.$rows['idsugerenciax'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_notificaciones_update&id_update='.$rows['idnotificacionx'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_notificacion_eliminar.php?id_delete='.$rows['idnotificacionx'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>
             ';
             $contador++;

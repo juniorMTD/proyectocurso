@@ -9,7 +9,7 @@ require_once "./php/main.php";
             <h3>NOTIFICACIONES</h3>
             <strong>Lista de Notificaciones</strong>
             <hr>
-            <a href="./index.php?mostrar=formu_notificacion_new" type="button" class="btn btn-success"><i class="fa fa-book"></i> PUBLICAR NUEVA NOTIFICACIÓN</a>
+            <a href="./index.php?mostrar=formu_notificaciones_new" type="button" class="btn btn-success"><i class="fa fa-book"></i> PUBLICAR NUEVA NOTIFICACIÓN</a>
             <hr>
 
         </div>
@@ -33,7 +33,7 @@ require_once "./php/main.php";
                                                 <input type="hidden" name="modulo_buscador" value="notificacion">
                                                 <div class="custom-field custom-has-addons">
                                                     <div class="custom-control custom-is-expanded">
-                                                        <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" placeholder="Puedes realizar la búsqueda por titulo de notificacion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" required>
+                                                        <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" placeholder="Puedes realizar la búsqueda por Titulo de notificacion" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" required>
                                                     </div>
                                                     <div class="custom-control">
                                                         <button class="custom-button custom-is-info" type="submit">Buscar</button>
@@ -93,9 +93,6 @@ require_once "./php/main.php";
                                         require_once "./php/formu_notificacion_lista.php";
                                     }
                                     ?>
-
-
-
                                 </div>
                             </div>
                         </div>

@@ -18,7 +18,7 @@ if (empty($descripcion)) {
 
 #validar los tipos de datos
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{10,40}", $descripcion)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{10,40}", $descripcion)) {
     $response = array("status" => "error", "message" => "¡La descripcion es muy corta, no cumple con el formato!");
     echo json_encode($response);
     exit();

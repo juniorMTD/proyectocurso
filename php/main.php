@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Lima');
 // veriricar los tipos de datos
 function verificar_datos($filtro,$cadena){
     if(preg_match("/^".$filtro."$/",$cadena)){
@@ -117,5 +117,47 @@ function paginador_tablas($pagina, $npaginas,$url,$botones){
     return $tabla;
 }
 
+
+// para calcular en notificaciones para saber el tiempo que se envio 
+function tiempo_transcurrido($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff_in_days = $diff->days;
+    $weeks = floor($diff_in_days / 7);
+    $days = $diff_in_days % 7;
+
+    $string = array(
+        'y' => 'año',
+        'm' => 'mes',
+        'w' => 'semana',
+        'd' => 'día',
+        'h' => 'hora',
+        'i' => 'minuto',
+        's' => 'segundo',
+    );
+
+    $values = array(
+        'y' => $diff->y,
+        'm' => $diff->m,
+        'w' => $weeks,
+        'd' => $days,
+        'h' => $diff->h,
+        'i' => $diff->i,
+        's' => $diff->s,
+    );
+
+    foreach ($values as $k => &$v) {
+        if ($v) {
+            $v = $v . ' ' . $string[$k] . ($v > 1 ? 's' : '');
+        } else {
+            unset($values[$k]);
+        }
+    }
+
+    if (!$full) $values = array_slice($values, 0, 1);
+    return $values ? 'hace ' . implode(', ', $values) : 'justo ahora';
+}
 
 ?>
