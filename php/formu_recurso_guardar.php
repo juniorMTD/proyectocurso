@@ -78,7 +78,7 @@ try {
     $guardar_recurso = $start->Conexiondb();
 
     $guardar_recurso = $guardar_recurso->prepare('INSERT INTO recursox VALUES 
-(:id,:nom,:recu,DEFAULT,:ico,:idtr,:idtema)');
+(:id,:nom,:recu,DEFAULT,:ico,:gratuito,:idtr,:idtema)');
 
 
     $maxmarcado = [
@@ -86,6 +86,7 @@ try {
         ":nom" => $nom_re,
         ":recu" => $recurso,
         ":ico" => $icono,
+        ":gratuito" => '0',
         ":idtr" => $tipo_re,
         ":idtema" => $idtem
     ];

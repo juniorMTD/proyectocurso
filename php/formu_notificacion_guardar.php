@@ -3,12 +3,13 @@
 require_once "../conexion/conexion_db.php";
 require_once "./main.php";
 $start = new Conexion();
+$conexion = $start->Conexiondb();
 
-$idusu=limpiar_cadena($_POST['idusu']);
+
+$idusu = limpiar_cadena($_POST['idusu']);
 
 $titulo = limpiar_cadena($_POST['titulo']);
 $mensaje = limpiar_cadena($_POST['mensaje']);
-
 
 #validar los campos vacios
 if (empty($titulo)) {
@@ -27,13 +28,13 @@ if (empty($mensaje)) {
 #validar los tipos de datos
 
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{5,40}", $titulo)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{5,100}", $titulo)) {
     $response = array("status" => "error", "message" => "¡El nombre no cumple con el formato!");
     echo json_encode($response);
     exit();
 }
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{10,800}", $mensaje)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{10,800}", $mensaje)) {
     $response = array("status" => "error", "message" => "¡El mensaje no cumple con el formato!");
     echo json_encode($response);
     exit();
@@ -42,11 +43,11 @@ if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{10,800}", $mensaje)) {
 
 #guardando datos
 try {
-    $guardar_notificacion = $start->Conexiondb();
+    // Iniciar una transacción si uno falla ninguno se registra
+    $conexion->beginTransaction();
 
-    $guardar_notificacion = $guardar_notificacion->prepare('INSERT INTO notificacionx VALUES 
-(:id,:titu,:men,:estado,DEFAULT,:idusu)');
-
+    $guardar_notificacion = $conexion->prepare('INSERT INTO notificacionx VALUES 
+    (:id,:titu,:men,:estado,DEFAULT,:idusu)');
 
     $maxmarcado = [
         ":id" => 'DEFAULT',
@@ -59,8 +60,40 @@ try {
     $guardar_notificacion->execute($maxmarcado);
 
     if ($guardar_notificacion->rowCount() == 1) {
-        $response = array("status" => "success", "message" => "¡Se registro correctamente!");
-        echo json_encode($response);
+
+        $ultimanotificacion = $conexion->lastInsertId();
+
+        // Obtener todos los usuarios
+        $usuarios = $conexion->query('SELECT idusuariox FROM usuariox')->fetchAll(PDO::FETCH_COLUMN);
+
+        if (count($usuarios) > 0) {
+
+            $guardar_notificacion_usuario = $conexion->prepare('INSERT INTO notificacionx_usuariox VALUES 
+        (:id2,:leido,:idnoti,:idusu)');
+
+            foreach ($usuarios as $idusuariox) {
+                $marcadofinal = [
+                    ":id2" => "DEFAULT",
+                    ":leido" => '0',
+                    ":idnoti" => $ultimanotificacion,
+                    ":idusu" => $idusuariox
+                ];
+
+                $guardar_notificacion_usuario->execute($marcadofinal);
+            }
+        
+            if ($guardar_notificacion_usuario->rowCount() > 0) {
+                // Confirmar la transacción
+                $conexion->commit();
+                $response = array("status" => "success", "message" => "¡Se registro correctamente!");
+                echo json_encode($response);
+            } else {
+                throw new PDOException("Error al registrar la notificacion por usuario");
+            }
+        }else {
+            throw new PDOException("Error al registrar la notificacion");
+        }
+        
     } else {
         throw new PDOException("Error al registrar la notificacion");
     }

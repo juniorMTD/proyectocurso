@@ -23,7 +23,7 @@ if (empty($nombre) || empty($catego)|| empty($docente)|| empty($celular)) {
 #validar los tipos de datos
 
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $nombre)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{3,40}", $nombre)) {
     $response = array("status" => "error", "message" => "¡El nombre no cumple con el formato!");
     echo json_encode($response);
     exit();
@@ -56,7 +56,7 @@ try {
     $guardar_curso = $start->Conexiondb();
 
     $guardar_curso = $guardar_curso->prepare('INSERT INTO cursox VALUES 
-(:id,:nom,:doc,:cel,:esta,:idcat)');
+(:id,:nom,:doc,:cel,:foto,:esta,:idcat)');
 
 
     $maxmarcado = [
@@ -64,6 +64,7 @@ try {
         ":nom" => $nombre,
         ":doc" => $docente,
         ":cel" => $celular,
+        ":foto" => null,
         ":esta" => $estado,
         ":idcat" => $catego
     ];

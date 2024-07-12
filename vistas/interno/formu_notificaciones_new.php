@@ -1,6 +1,7 @@
 <?php
 require_once "./conexion/conexion_db.php";
 require_once "./php/main.php";
+
 ?>
 <!-- page content -->
 <div class="right_col" role="main">

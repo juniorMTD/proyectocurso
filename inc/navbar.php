@@ -3,13 +3,16 @@ require_once "./conexion/conexion_db.php";
 require_once "./php/main.php";
 
 $start = new Conexion();
+$id_usuario=limpiar_cadena($_SESSION['id']);
 
 $consulta_datos = $start->Conexiondb();
-$consulta_datos = $consulta_datos->query("select * from notificacionx where leido='0' ORDER BY fec DESC limit 0,5 ");
+$consulta_datos = $consulta_datos->query("select nu.idnotificacionx_usuariox,n.titulo,n.mensaje, n.fec,nu.leido from notificacionx n inner join notificacionx_usuariox nu on 
+nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='$id_usuario' ORDER BY n.fec DESC limit 0,5 ");
 $datos = $consulta_datos->fetchAll();
 
 $consulta_total = $start->Conexiondb();
-$consulta_total = $consulta_total->query("select count(idnotificacionx) from notificacionx where leido='0' ORDER BY fec DESC limit 0,5");
+$consulta_total = $consulta_total->query("select count(nu.idnotificacionx_usuariox) from notificacionx n inner join notificacionx_usuariox nu on 
+nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='$id_usuario' ORDER BY n.fec DESC limit 0,5 ");
 $total = (int) $consulta_total->fetchColumn();
 
 ?>
@@ -91,7 +94,7 @@ $total = (int) $consulta_total->fetchColumn();
                 <span class="fa fa-angle-down"></span>
               </a>
               <ul class="dropdown-menu dropdown-usermenu pull-right">
-                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                <li><a href="./index.php?mostrar=logout"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
               </ul>
             </li>
             <li role="presentation" class="dropdown">
@@ -105,7 +108,7 @@ $total = (int) $consulta_total->fetchColumn();
                 <?php  if ($total > 0) {
                 foreach ($datos as $rows) { ?>
                   <li>
-                    <a href="./php/marcar_noti.php?id_n=<?php echo $rows['idnotificacionx']; ?>">
+                    <a href="./php/marcar_noti.php?id_n=<?php echo $rows['idnotificacionx_usuariox']; ?>">
                       <span class="image"><img src="./biblioteca/images/noti.png" alt="Noti" /></span>
                       <span>
                         <span class="time"><?php echo tiempo_transcurrido($rows['fec']) ?></span><br>

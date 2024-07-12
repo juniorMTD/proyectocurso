@@ -63,9 +63,9 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$rows['descx'].'</td>
                 <td class=" ">'.$rows['usux'].'</td>
                 <td class=" ">'.$rows['dnix'].'</td>
-                <td class=" ">'.(($rows['estado_segu'] == 1) ? 'No Leido' : 'Leido').'</td>
+                <td class=" ">'.(($rows['estado_segu'] == 0) ? 'No Leido' : 'Leido').'</td>
                 <td class=" ">'.$rows['f_registro'].'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_sugerencia_update&id_update='.$rows['idsugerenciax'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="php/formu_sugerencia_actualizar.php?id_update='.$rows['idsugerenciax'].'"><i class="fa fa-eye"></i> Visualizar</a></td>
                 <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_sugerencia_eliminar.php?id_delete='.$rows['idsugerenciax'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>
             ';

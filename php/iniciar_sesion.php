@@ -38,9 +38,10 @@ if (verificar_datos("[a-zA-Z0-9$@.-]{6,100}", $login_clv)) {
 $start = new Conexion();
 $conn = $start->Conexiondb();
 
-$check_usuario = $conn->query("SELECT * FROM usux ux inner join usuariox usx on ux.idusux=usx.idusuariox and usux='$login_usu' and estadox=1;");
+$check_usuario = $conn->query("SELECT * FROM usux ux inner join usuariox usx on ux.idusux=usx.idusux and usux='$login_usu' and estadox=1;");
+$check_empleado = $conn->query("SELECT * FROM usux ux inner join empleado e on e.idusux=ux.idusux and ux.usux='$login_usu' and ux.estadox=1;");
 
-if ($check_usuario->rowCount() == 1) {
+if ($check_usuario->rowCount() == 1 || $check_empleado->rowCount() == 1) {
     $check_usuario = $check_usuario->fetch();
     if ($check_usuario['usux'] == $login_usu && $check_usuario['clvx']==$login_clv) {
         $_SESSION['id'] = $check_usuario['idusuariox'];
@@ -54,12 +55,13 @@ if ($check_usuario->rowCount() == 1) {
             header("Location: index.php?mostrar=home");
         }
     } else {
-        if ($login_usu == 'superadmin') {
-                if ($check_usuario['usux'] == $login_usu && $check_usuario['clvx'] == $login_clv) {
-                    $_SESSION['id'] = $check_usuario['idusux'];
-                    $_SESSION['nombres'] = $check_usuario['nomx'];
-                    $_SESSION['apellidos'] = $check_usuario['apelx'];
-                    $_SESSION['usuario'] = $check_usuario['usux'];
+        // if ($login_usu == 'superadmin') {
+                $check_empleado = $check_empleado->fetch();
+                if ($check_empleado['usux'] == $login_usu && $check_empleado['clvx'] == $login_clv) {
+                    $_SESSION['id'] = $check_empleado['idusux'];
+                    $_SESSION['nombres'] = $check_empleado['nomx'];
+                    $_SESSION['apellidos'] = $check_empleado['apelx'];
+                    $_SESSION['usuario'] = $check_empleado['usux'];
 
                     if (headers_sent()) {
                         echo "<script> window.location.href='index.php?mostrar=home'; </script>";
@@ -71,11 +73,11 @@ if ($check_usuario->rowCount() == 1) {
                         <strong>¡Los datos ingresados no son validos, intente nuevamente!</strong><br>
                         </div>';
                 }
-        } else {
-            echo    '<div class="notification is-danger is-light">
-                    <strong>¡Los datos ingresados no son validos, intente nuevamente!</strong><br>
-                    </div>';
-        }
+        // } else {
+        //     echo    '<div class="notification is-danger is-light">
+        //             <strong>¡Los datos ingresados no son validos, intente nuevamente!</strong><br>
+        //             </div>';
+        // }
     }
 } else {
 

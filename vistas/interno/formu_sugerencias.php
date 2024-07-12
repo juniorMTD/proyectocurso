@@ -51,7 +51,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_sugerencia&page=";
+                                        $url = "index.php?mostrar=formu_sugerencias&page=";
                                         $registros = 15;
                                         $busqueda = "";
 
@@ -83,7 +83,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_sugerencia&page=";
+                                        $url = "index.php?mostrar=formu_sugerencias&page=";
                                         $registros = 15;
                                         $busqueda = $_SESSION['busqueda_sugerencia'];
 
