@@ -90,7 +90,7 @@ try {
         $response = array("status" => "success", "message" => "¡Se actualizo correctamente!");
         echo json_encode($response);
     } else {
-        throw new PDOException("Error al registrar la categoria");
+        throw new PDOException("Error al actualizar el programa de estudio");
     }
     $actualizar_curso = null;
 } catch (PDOException $e) {

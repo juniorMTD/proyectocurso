@@ -1,22 +1,23 @@
 <?php
 require_once "../conexion/conexion_db.php";
+$start = new Conexion();
 
 // Obtener el ID de la notificación de la URL
 $id_notificacion = isset($_GET['id_n']) ? intval($_GET['id_n']) : 0;
-$idusuario = $_SESSION['id'] ;
+$idusuario = isset($_GET['id_u']) ? intval($_GET['id_u']) : 0 ;
 
-if ($id_notificacion > 0) {
-    // Conectar a la base de datos
-    $start = new Conexion();
-    $conn = $start->Conexiondb();
-
+if ($id_notificacion > 0 && $idusuario > 0) {
     // Actualizar el estado de la notificación a 'leído'
-    $stmt = $conn->prepare("UPDATE notificacionx_usuariox nu inner join notificacionx n on nu.idnotificacionx=n.idnotificacionx
-     SET nu.leido = 1 WHERE nu.idnotificacionx_usuariox = :id and nu.idusuariox=:usu");
-    $stmt->bindParam(':id', $id_notificacion, PDO::PARAM_INT);
-    $stmt->bindParam(':usu', $idusuario, PDO::PARAM_INT);
+    $actualizar_notificacion = $start->Conexiondb();
+    $actualizar_notificacion = $actualizar_notificacion->prepare('UPDATE notificacionx_usuariox nu
+     SET nu.leido = 1 WHERE nu.idnotificacionx_usuariox =:idnoti and nu.idusuariox=:idusu;');
 
-    if ($stmt->execute()) {
+    $maxmarcado = [
+        ":idnoti" => $id_notificacion,
+        ":idusu" => $idusuario
+    ];
+
+    if ($actualizar_notificacion->execute($maxmarcado)) {
         // Redirigir a la página de destino después de marcar como leído
         header("Location: ../index.php?mostrar=frmnotificaciones");
         exit();
@@ -24,6 +25,6 @@ if ($id_notificacion > 0) {
         echo "Error al marcar la notificación como leída.";
     }
 } else {
-    echo "ID de notificación no válido.";
+    echo "ID de notificación o usuario no es válido";
 }
 ?>

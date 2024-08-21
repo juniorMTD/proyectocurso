@@ -32,7 +32,6 @@ if (empty($dni) || empty($nombres) || empty($apellidos) || empty($universidad) |
 
 
 
-
 #validar los tipos de datos
 
 if (verificar_datos("[0-9]{8}", $dni)) {

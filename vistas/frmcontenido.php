@@ -115,12 +115,12 @@ if ($check_tema->rowCount() > 0) {
                                         </article>
                                 <?php
                                     }
-                                } else if ($rows['tipox'] == 'INFOGRAFÍAS') {
+                                } else if ($rows['tipox'] == 'INFOGRAFIAS') {
                                     $check_resumen = $start->Conexiondb();
                                     $check_resumen = $check_resumen->query("select t.idtemax as idt, tr.tipox as tp, t.temx as tema, r.recurso as recur,r.icono as icon,r.f_regis as fecha, r.nom_recu as re
                                 from temax t  inner join recursox r ON
                                 r.idtemax=t.idtemax inner join tipo_recursox tr
-                                on r.idtipo_recursox=tr.idtipo_recursox where t.idtemax='$id' and tr.tipox='INFOGRAFÍAS';");
+                                on r.idtipo_recursox=tr.idtipo_recursox where t.idtemax='$id' and tr.tipox='INFOGRAFIAS';");
                                     $libro = $check_resumen->fetchAll();
 
                                     foreach ($libro as $rows1) {

@@ -28,11 +28,12 @@ if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{1,40}", $descripcion))
 try {
     $guardar_sugerencia = $start->Conexiondb();
     $guardar_sugerencia = $guardar_sugerencia->prepare('INSERT INTO sugerenciax VALUES 
-(:id,:descrip,DEFAULT,:estado,:idusu)');
+(:id,:descrip,:ima,DEFAULT,:estado,:idusu)');
 
     $maxmarcado = [
         ":id" => 'DEFAULT',
         ":descrip" => $descripcion,
+        ":ima"=>'',
         ":estado" => '0',
         ":idusu" => $idusu
     ];
