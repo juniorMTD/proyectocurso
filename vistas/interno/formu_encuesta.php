@@ -10,7 +10,6 @@ require_once "./php/main.php";
             <hr>
             <a href="./index.php?mostrar=formu_encuesta_new" type="button" class="btn btn-success"><i class="fa fa-plus"></i> AGREGAR ENCUESTA</a>
             <hr>
-
         </div>
         <div class="clearfix"></div>
 
