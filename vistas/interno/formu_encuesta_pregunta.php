@@ -1,6 +1,18 @@
 <?php
 require_once "./conexion/conexion_db.php";
 require_once "./php/main.php";
+
+
+$id = (isset($_GET['id_pregunta'])) ? $_GET['id_pregunta'] : 0;
+$id=limpiar_cadena($id);
+
+$start = new Conexion();
+
+$check_encuesta = $start->Conexiondb();
+$check_encuesta=$check_encuesta->query("SELECT * FROM encuestax e where e.idencuestax='$id'");
+
+if($check_encuesta->rowCount()>0){
+    $datos=$check_encuesta->fetch();
 ?>
 <!-- page content -->
 <div class="right_col" role="main">
@@ -19,18 +31,22 @@ require_once "./php/main.php";
                     <div class="col-md-4 col-xs-12">
                       <div class="x_panel">
                         <div class="x_title">
-                          <h2>Nombre de la encuesta </h2>
+                          <h2><?php echo $datos['titulox'] ?></h2>
                           
                           <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
                           <br/>
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                              <h2>Descripcion de la encuesta</h2>
+                              <h2><?php echo $datos['descripx'] ?></h2>
                             </div>
 
                             <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                              <h2>Activo</h2>
+                              <h2><?php echo $datos['estado_encuesta'] ?></h2>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6 col-xs-12 form-group">
+                              <h2><?php echo $datos['f_creacion'] ?></h2>
                             </div>
                         </div>
                       </div>
@@ -82,3 +98,9 @@ require_once "./php/main.php";
     </div>
 </div>
 <!-- /page content -->
+<?php
+    }else{
+        include "./inc/error_alert.php";
+    }
+    $check_encuesta=null;
+?>

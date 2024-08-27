@@ -2,6 +2,73 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Selecciona el elemento select por su ID  
+    var tipoPreguntaSelect = document.getElementById('tipo_pregunta');
+
+    // Añade un listener para el evento 'change'
+    tipoPreguntaSelect.addEventListener('change', function () {
+        // Ocultar todos los divs que corresponden a tipos de preguntas
+        var divs = document.querySelectorAll('.tipo-pregunta');
+        divs.forEach(function (div) {
+            div.style.display = 'none';
+        });
+
+        // Mostrar el div correspondiente al tipo seleccionado
+        var tipo = this.value; // El valor seleccionado en el select
+        if (tipo) {
+            // Busca el div que corresponde al valor seleccionado
+            var divToShow = document.getElementById('tipo_' + tipo + '_div');
+            if (divToShow) {
+                divToShow.style.display = 'block';
+            }
+        }
+    });
+
+    window.addOpcion = function(tipo) {
+        const containerId = tipo == 'simple' ? 'opciones-container-simple' : 'opciones-container-multiple';
+        const container = document.getElementById(containerId);
+        const newRow = document.createElement('div');
+        newRow.className = 'opcion-row custom-form-row';
+    
+        let inputHTML;
+        if (tipo === 'simple') {
+          inputHTML = `
+            <div class="custom-form-group">
+                <input type="radio" name="opcion_simple" value="opcion_${Date.now()}">
+            </div>
+            <div class="custom-form-group">
+              <input type="text" name="opciones_simple[]" class="custom-form-control" placeholder="Digite la opción">
+            </div>
+            <div class="custom-form-group">
+              <button type="button" class="btn-remove-opcion" onclick="removeOpcion(this)">Eliminar</button>
+            </div>
+          `;
+        } else {
+          inputHTML = `
+            <div class="custom-form-group">
+                <input type="checkbox" name="opciones_multiple[]" value="opcion_${Date.now()}">
+            </div>
+            <div class="custom-form-group">
+              <input type="text" name="opciones_multiple_text[]" class="custom-form-control" placeholder="Digite la opción">
+            </div>
+            <div class="custom-form-group">
+              <button type="button" class="btn-remove-opcion" onclick="removeOpcion(this)">Eliminar</button>
+            </div>
+          `;
+        }
+    
+        newRow.innerHTML = inputHTML;
+        container.appendChild(newRow);
+      };
+    
+      window.removeOpcion = function(button) {
+        const row = button.parentElement.parentElement;
+        row.remove();
+      };
+
+
+
+
     // Función genérica para mostrar el diálogo de confirmación
     function showConfirmationDialog(title, text, confirmButtonText, callback) {
         Swal.fire({
@@ -202,6 +269,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
+
+
+    
 
    
 });
