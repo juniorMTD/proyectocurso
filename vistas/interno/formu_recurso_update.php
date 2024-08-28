@@ -13,7 +13,6 @@ $conn = $start->Conexiondb();
 $consulta_datos="select * from tipo_recursox;";
 
 
-
 $datos=$conn->query($consulta_datos);
 
 $datos=$datos->fetchAll();
