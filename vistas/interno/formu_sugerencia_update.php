@@ -49,7 +49,7 @@ if($check_curso->rowCount()>0){
                     </div>
                 </div>
                 <div class="custom-form-row">
-                    <a href="./index.php?mostrar=formu_sugerencias" type="button" class="custom-btn custom-btn-secondary">Salir</a>
+                    <a href="./indexado.php?mostrar=formu_sugerencias" type="button" class="custom-btn custom-btn-secondary">Salir</a>
                 </div>
             </form>
         </div>

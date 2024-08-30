@@ -53,7 +53,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_usuario&page=";
+                                        $url= "indexado.php?mostrar=formu_usuario&page=";
                                         $registros = 15;
                                         // $busqueda = $_SESSION['busqueda_categoria'];
 
@@ -85,7 +85,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_usuario&page=";
+                                        $url= "indexado.php?mostrar=formu_usuario&page=";
                                         $registros = 15;
                                         // $busqueda = $_SESSION['busqueda_categoria'];
 

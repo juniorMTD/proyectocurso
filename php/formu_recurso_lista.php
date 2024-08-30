@@ -77,7 +77,7 @@ if($total>=1 && $pagina<=$npaginas){
 
         $tabla.='</td>
                 <td class=" ">'.$rows['f_regis'].'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_recurso_update&id_update='.$rows['idrecursox'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./indexado.php?mostrar=formu_recurso_update&id_update='.$rows['idrecursox'].'"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_recurso_eliminar.php?id_delete='.$rows['idrecursox'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>
             ';

@@ -23,8 +23,8 @@
         <h3>RECURSOS</h3>
         <strong>Lista de Recursos del <?php echo $datos['temx']?> </strong>
         <hr>
-        <?php echo '<a href="./index.php?mostrar=formu_recurso_new&idtex='.$id.'" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR RECURSOS</a>' ?>
-        <a href="./index.php?mostrar=formu_tema" type="button" class="custom-btn custom-btn-secondary"><i class="fa fa-return"></i> SALIR</a>
+        <?php echo '<a href="./indexado.php?mostrar=formu_recurso_new&idtex='.$id.'" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR RECURSOS</a>' ?>
+        <a href="./indexado.php?mostrar=formu_tema" type="button" class="custom-btn custom-btn-secondary"><i class="fa fa-return"></i> SALIR</a>
         <hr>
 
         
@@ -72,7 +72,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_recurso&page=";
+                                        $url= "indexado.php?mostrar=formu_recurso&page=";
                                         $registros = 10;
                                         $busqueda = '';
 
@@ -104,7 +104,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_recurso&page=";
+                                        $url= "indexado.php?mostrar=formu_recurso&page=";
                                         $registros = 10;
                                         $busqueda = $_SESSION['busqueda_recurso'];
 

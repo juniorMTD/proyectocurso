@@ -27,7 +27,7 @@ if($check_categoria->rowCount()>0){
         <div class="clearfix"></div>
 
         <div class="custom-container">
-            <form id="update-form" class="custom-form" action="./php/formu_categoria_actualizar.php" method="POST" autocomplete="off" data-redirect-url="./index.php?mostrar=formu_categoria">
+            <form id="update-form" class="custom-form" action="./php/formu_categoria_actualizar.php" method="POST" autocomplete="off" data-redirect-url="./indexado.php?mostrar=formu_categoria">
                 <!-- mensaje de alerta -->
                 <div id="alert" class="alert-overlay">
                     <div class="alert-container">
@@ -64,7 +64,7 @@ if($check_categoria->rowCount()>0){
                 </div>
                 <div class="custom-form-row">
                     <button type="submit" class="custom-btn custom-btn-primary ">Actualizar</button>
-                    <a href="./index.php?mostrar=formu_categoria" type="button" class="custom-btn custom-btn-secondary">Salir</a>
+                    <a href="./indexado.php?mostrar=formu_categoria" type="button" class="custom-btn custom-btn-secondary">Salir</a>
                 </div>
             </form>
         </div>

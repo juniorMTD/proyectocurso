@@ -34,7 +34,7 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="./index.php?mostrar=home" class="site_title"><i class="fa fa-building"></i> <span>TERRACIVIL</span></a>
+            <a href="./indexado.php?mostrar=home" class="site_title"><i class="fa fa-building"></i> <span>TERRACIVIL</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -59,38 +59,38 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">Perfil</a></li>
+                    <li><a href="indexado.html">Perfil</a></li>
                   </ul>
                 </li>
-                <li><a href="./index.php?mostrar=frmprincipal"><i class="fa fa-pie-chart"></i> Recursos</a>
+                <li><a href="./indexado.php?mostrar=frmprincipal"><i class="fa fa-pie-chart"></i> Recursos</a>
                 </li>
                 <li>
-                  <a href="./index.php?mostrar=frmsugerencia"><i class="fa fa-thumbs-up"></i> Sugerencias </a>
+                  <a href="./indexado.php?mostrar=frmsugerencia"><i class="fa fa-thumbs-up"></i> Sugerencias </a>
                 </li>
                 <li><a><i class="fa fa-desktop"></i> Gestion Recursos<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="./index.php?mostrar=formu_categoria">Categorias</a></li>
-                    <li><a href="./index.php?mostrar=formu_curso">Cursos</a></li>
-                    <li><a href="./index.php?mostrar=formu_tema">Temas</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_categoria">Categorias</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_curso">Cursos</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_tema">Temas</a></li>
                     
                   </ul>
                 </li>
                 <li><a><i class="fa fa-envelope-o"></i> Gestion Notificación<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="./index.php?mostrar=formu_sugerencias">Sugerencias</a></li>
-                    <li><a href="./index.php?mostrar=formu_notificaciones">Notificaciones</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_sugerencias">Sugerencias</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_notificaciones">Notificaciones</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-users"></i> Gestion Usuarios<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="./index.php?mostrar=formu_matricula">Matricula</a></li>
-                    <li><a href="./index.php?mostrar=formu_usuario">Usuarios</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_matricula">Matricula</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_usuario">Usuarios</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart"></i> Gestion Encuestas<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="./index.php?mostrar=formu_encuesta">Encuesta</a></li>
-                    <li><a href="./index.php?mostrar=formu_usuario">Reportes</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_encuesta">Encuesta</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_usuario">Reportes</a></li>
                   </ul>
                 </li>
               </ul>
@@ -116,7 +116,7 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
                   <span class="fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="./index.php?mostrar=logout"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                  <li><a href="./indexado.php?mostrar=logout"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                 </ul>
               </li>
               <li role="presentation" class="dropdown">
@@ -154,7 +154,7 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
                   <?php } ?>
                   <li>
                     <div class="text-center">
-                      <a href="./index.php?mostrar=frmnotificaciones">
+                      <a href="./indexado.php?mostrar=frmnotificaciones">
                         <strong>Ver mas</strong>
                         <i class="fa fa-angle-right"></i>
                       </a>
@@ -195,7 +195,7 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="./index.php?mostrar=home" class="site_title"><i class="fa fa-building"></i> <span>TERRACIVIL</span></a>
+            <a href="./indexado.php?mostrar=home" class="site_title"><i class="fa fa-building"></i> <span>TERRACIVIL</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -221,13 +221,13 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="index.html">Perfil</a></li>
+                    <li><a href="indexado.html">Perfil</a></li>
                   </ul>
                 </li>
-                <li><a href="./index.php?mostrar=frmprincipal"><i class="fa fa-pie-chart"></i> Recursos</a>
+                <li><a href="./indexado.php?mostrar=frmprincipal"><i class="fa fa-pie-chart"></i> Recursos</a>
                 </li>
                 <li>
-                  <a href="./index.php?mostrar=frmsugerencia"><i class="fa fa-thumbs-up"></i> Sugerencias </a>
+                  <a href="./indexado.php?mostrar=frmsugerencia"><i class="fa fa-thumbs-up"></i> Sugerencias </a>
                 </li>
               </ul>
             </div>
@@ -252,7 +252,7 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
                   <span class="fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="./index.php?mostrar=logout"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                  <li><a href="./indexado.php?mostrar=logout"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                 </ul>
               </li>
               <li role="presentation" class="dropdown">
@@ -290,7 +290,7 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
                   <?php } ?>
                   <li>
                     <div class="text-center">
-                      <a href="./index.php?mostrar=frmnotificaciones">
+                      <a href="./indexado.php?mostrar=frmnotificaciones">
                         <strong>Ver mas</strong>
                         <i class="fa fa-angle-right"></i>
                       </a>

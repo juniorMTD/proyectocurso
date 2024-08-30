@@ -52,7 +52,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_matricula&page=";
+                                        $url= "indexado.php?mostrar=formu_matricula&page=";
                                         $registros = 15;
                                         // $busqueda = $_SESSION['busqueda_categoria'];
 
@@ -84,7 +84,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_matricula&page=";
+                                        $url= "indexado.php?mostrar=formu_matricula&page=";
                                         $registros = 15;
                                         // $busqueda = $_SESSION['busqueda_categoria'];
 

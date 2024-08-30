@@ -7,7 +7,7 @@
                 <div class="col-lg-6 custom-login-section">
                     <div class="login-content">
                         <div class="logo">
-                            <img src="logo.png" alt="Logo TERRACIVIL">
+                            <img style="border-radius:50%" src="./biblioteca/images/logo.jpg" alt="Logo TERRACIVIL">
                         </div>
                         <h2>BIENVENIDO A LA PAGINA DE RECURSOS DE TERRACIVIL</h2>
                         <p>Por favor ingrese a su cuenta</p>

@@ -37,7 +37,7 @@ $tema=$tema->fetchAll();
         <div class="clearfix"></div>
 
         <div class="custom-container">
-        <?php echo ' <form id="registration-form" class="custom-form" action="./php/formu_recurso_guardar.php" method="POST" autocomplete="off" enctype="multipart/form-data" data-redirect-url="./index.php?mostrar=formu_recurso&idtemax='.$id.'">' ?>
+        <?php echo ' <form id="registration-form" class="custom-form" action="./php/formu_recurso_guardar.php" method="POST" autocomplete="off" enctype="multipart/form-data" data-redirect-url="./indexado.php?mostrar=formu_recurso&idtemax='.$id.'">' ?>
                 
                 <!-- mensaje de alerta -->
                 <div id="alert" class="alert-overlay">
@@ -90,7 +90,7 @@ $tema=$tema->fetchAll();
                 </div>
                 <div class="custom-form-row">
                     <button type="submit" class="custom-btn custom-btn-primary">Guardar</button>
-                    <?php echo '<a href="./index.php?mostrar=formu_recurso&idtemax='.$id.'" type="button" class="custom-btn custom-btn-secondary">Salir</a>' ?>
+                    <?php echo '<a href="./indexado.php?mostrar=formu_recurso&idtemax='.$id.'" type="button" class="custom-btn custom-btn-secondary">Salir</a>' ?>
                 </div>
             </form>
         </div>

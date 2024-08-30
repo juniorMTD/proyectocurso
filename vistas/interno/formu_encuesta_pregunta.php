@@ -51,7 +51,7 @@ if($check_encuesta->rowCount()>0){
                             </div>
 
                             <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                              <a href="./index.php?mostrar=formu_encuesta" type="button" class="btn btn-warning"><i class="fa fa-mail-reply"></i>  Salir</a>
+                              <a href="./indexado.php?mostrar=formu_encuesta" type="button" class="btn btn-warning"><i class="fa fa-mail-reply"></i>  Salir</a>
                             </div>
                         </div>
                       </div>
@@ -62,7 +62,7 @@ if($check_encuesta->rowCount()>0){
                         <div class="x_title">
                           <h2>Preguntas de la encuesta </h2>
                           <ul class="navbar-right">
-                            <?php echo ' <li><a href="./index.php?mostrar=formu_encuesta_pregunta_new&idencuesta='.$datos['idencuestax'].'" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>  <small>Agregar pregunta</small></a>' ?>
+                            <?php echo ' <li><a href="./indexado.php?mostrar=formu_encuesta_pregunta_new&idencuesta='.$datos['idencuestax'].'" type="button" class="btn btn-primary"><i class="fa fa-plus"></i>  <small>Agregar pregunta</small></a>' ?>
                             </li>
                           </ul>
                           <div class="clearfix"></div>
@@ -82,10 +82,11 @@ if($check_encuesta->rowCount()>0){
                                     <li class="dropdown">
                                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-list"></i></a>
                                       <ul class="dropdown-menu" role="menu">
-                                        <li><a href="./index.php?mostrar=formu_encuesta_pregunta_update&idpregunta=<?php echo $rows1['idpreguntax'] ?>&idencuesta=<?php echo $rows1['idencuestax'] ?>">Actualizar</a>
+                                        <li><a href="./indexado.php?mostrar=formu_encuesta_pregunta_update&idpregunta=<?php echo $rows1['idpreguntax'] ?>&idencuesta=<?php echo $rows1['idencuestax'] ?>"><i class="fa fa-edit"></i> Actualizar</a>
                                         </li>
-                                        <li><a href="#">Eliminar</a>
+                                        <li><a type="button" class="delete-btn" data-url="./php/formu_pregunta_eliminar.php?id_delete='<?php echo $rows1['idpreguntax'] ?>'"><i class="fa fa-trash"></i> Eliminar</a>
                                         </li>
+
                                       </ul>
                                     </li>
                                   </ul>

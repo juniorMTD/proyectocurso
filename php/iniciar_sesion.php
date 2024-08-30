@@ -51,9 +51,9 @@ if ($check_usuario->rowCount() == 1) {
         $_SESSION['usuario'] = $check_usuario['usux'];
 
         if (headers_sent()) {
-            echo "<script> window.location.href='index.php?mostrar=home'; </script>";
+            echo "<script> window.location.href='indexado.php?mostrar=home'; </script>";
         } else {
-            header("Location: index.php?mostrar=home");
+            header("Location: indexado.php?mostrar=home");
         }
     } else {
         echo    '<div class="notification is-danger is-light">
@@ -71,9 +71,9 @@ if ($check_usuario->rowCount() == 1) {
             $_SESSION['usuario'] = $check_empleado['usux'];
 
             if (headers_sent()) {
-                echo "<script> window.location.href='index.php?mostrar=home'; </script>";
+                echo "<script> window.location.href='indexado.php?mostrar=home'; </script>";
             } else {
-                header("Location: index.php?mostrar=home");
+                header("Location: indexado.php?mostrar=home");
             }
         } else {
             echo    '<div class="notification is-danger is-light">

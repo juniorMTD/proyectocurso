@@ -14,7 +14,7 @@ require_once "./php/main.php";
         <div class="clearfix"></div>
 
         <div class="custom-container">
-            <form id="registration-form" class="custom-form" action="./php/formu_sugerencia_guardar.php" method="POST" autocomplete="off" data-redirect-url="./index.php?mostrar=home">
+            <form id="registration-form" class="custom-form" action="./php/formu_sugerencia_guardar.php" method="POST" autocomplete="off" data-redirect-url="./indexado.php?mostrar=home">
                 
                 <!-- mensaje de alerta -->
                 <div id="alert" class="alert-overlay">
@@ -38,7 +38,7 @@ require_once "./php/main.php";
                 </div>
                 <div class="custom-form-row">
                     <button type="submit" class="custom-btn custom-btn-primary">Enviar</button>
-                    <a href="./index.php?mostrar=home" type="button" class="custom-btn custom-btn-secondary">Salir</a>
+                    <a href="./indexado.php?mostrar=home" type="button" class="custom-btn custom-btn-secondary">Salir</a>
                 </div>
             </form>
         </div>

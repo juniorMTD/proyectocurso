@@ -163,7 +163,7 @@ if ($check_tema->rowCount() > 0) {
                     <h3>Los datos estan siendo procesados</h3>
                 </div>
                 <div class="title_right">
-                    <a href="./index.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
+                    <a href="./indexado.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
                 </div>
             </div>
             <div class="clearfix"></div>

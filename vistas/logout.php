@@ -3,9 +3,9 @@
 session_destroy();
 
 if( headers_sent()){
-    echo "<script> window.location.href='index.php?mostrar=login'; </script>";
+    echo "<script> window.location.href='indexado.php?mostrar=login'; </script>";
 }else{
-    header("Location: index.php?mostrar=login");
+    header("Location: indexado.php?mostrar=login");
 }
 
 ?>

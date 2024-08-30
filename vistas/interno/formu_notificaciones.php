@@ -9,7 +9,7 @@ require_once "./php/main.php";
             <h3>NOTIFICACIONES</h3>
             <strong>Lista de Notificaciones</strong>
             <hr>
-            <a href="./index.php?mostrar=formu_notificaciones_new" type="button" class="btn btn-success"><i class="fa fa-book"></i> PUBLICAR NUEVA NOTIFICACIÓN</a>
+            <a href="./indexado.php?mostrar=formu_notificaciones_new" type="button" class="btn btn-success"><i class="fa fa-book"></i> PUBLICAR NUEVA NOTIFICACIÓN</a>
             <hr>
 
         </div>
@@ -54,7 +54,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_notificacion&page=";
+                                        $url = "indexado.php?mostrar=formu_notificacion&page=";
                                         $registros = 15;
                                         $busqueda = "";
 
@@ -86,7 +86,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_notificacion&page=";
+                                        $url = "indexado.php?mostrar=formu_notificacion&page=";
                                         $registros = 15;
                                         $busqueda = $_SESSION['busqueda_notificacion'];
 

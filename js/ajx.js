@@ -6,23 +6,26 @@ document.addEventListener('DOMContentLoaded', function () {
     var tipoPreguntaSelect = document.getElementById('tipo_pregunta');
 
     // Añade un listener para el evento 'change'
-    tipoPreguntaSelect.addEventListener('change', function () {
-        // Ocultar todos los divs que corresponden a tipos de preguntas
-        var divs = document.querySelectorAll('.tipo-pregunta');
-        divs.forEach(function (div) {
-            div.style.display = 'none';
-        });
 
-        // Mostrar el div correspondiente al tipo seleccionado
-        var tipo = this.value; // El valor seleccionado en el select
-        if (tipo) {
-            // Busca el div que corresponde al valor seleccionado
-            var divToShow = document.getElementById('tipo_' + tipo + '_div');
-            if (divToShow) {
-                divToShow.style.display = 'block';
+    if (tipoPreguntaSelect) {
+        tipoPreguntaSelect.addEventListener('change', function () {
+            // Ocultar todos los divs que corresponden a tipos de preguntas
+            var divs = document.querySelectorAll('.tipo-pregunta');
+            divs.forEach(function (div) {
+                div.style.display = 'none';
+            });
+
+            // Mostrar el div correspondiente al tipo seleccionado
+            var tipo = this.value; // El valor seleccionado en el select
+            if (tipo) {
+                // Busca el div que corresponde al valor seleccionado
+                var divToShow = document.getElementById('tipo_' + tipo + '_div');
+                if (divToShow) {
+                    divToShow.style.display = 'block';
+                }
             }
-        }
-    });
+        });
+    }
 
     window.addOpcion = function(tipo) {
         const containerId = tipo == 'simple' ? 'opciones-container-simple' : 'opciones-container-multiple';

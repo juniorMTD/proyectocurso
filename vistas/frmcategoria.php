@@ -30,7 +30,7 @@ if($check_curso->rowCount()>0){
                 <h3><?php echo htmlspecialchars($datos1['nomx'], ENT_QUOTES, 'UTF-8'); ?></h3>
             </div>
             <div class="title_right">
-                <a href="./index.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
+                <a href="./indexado.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -71,7 +71,7 @@ if($check_curso->rowCount()>0){
                                             </p>
                                         </div>
                                         <div class="col-xs-12 col-sm-6 emphasis">
-                                            <a href="index.php?mostrar=frmtema&id_mostrar1=<?php echo htmlspecialchars($rows['idcursox'], ENT_QUOTES, 'UTF-8'); ?>" type="button" class="btn btn-success btn-xs">
+                                            <a href="indexado.php?mostrar=frmtema&id_mostrar1=<?php echo htmlspecialchars($rows['idcursox'], ENT_QUOTES, 'UTF-8'); ?>" type="button" class="btn btn-success btn-xs">
                                                 <i class="fa fa-book"> </i> TEMAS
                                             </a>
                                         </div>
@@ -103,7 +103,7 @@ if($check_curso->rowCount()>0){
                         <h3>Los datos estan siendo procesados</h3>
                     </div>
                     <div class="title_right">
-                        <a href="./index.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
+                        <a href="./indexado.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
                     </div>
                 </div>
                 <div class="clearfix"></div>

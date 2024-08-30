@@ -8,7 +8,7 @@ require_once "./php/main.php";
         <div>
             <h3>ENCUESTAS</h3>
             <hr>
-            <a href="./index.php?mostrar=formu_encuesta_new" type="button" class="btn btn-success"><i class="fa fa-plus"></i> AGREGAR ENCUESTA</a>
+            <a href="./indexado.php?mostrar=formu_encuesta_new" type="button" class="btn btn-success"><i class="fa fa-plus"></i> AGREGAR ENCUESTA</a>
             <hr>
         </div>
         <div class="clearfix"></div>
@@ -52,7 +52,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_encuesta&page=";
+                                        $url = "indexado.php?mostrar=formu_encuesta&page=";
                                         $registros = 15;
                                         $busqueda = "";
 
@@ -84,7 +84,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_encuesta&page=";
+                                        $url = "indexado.php?mostrar=formu_encuesta&page=";
                                         $registros = 15;
                                         $busqueda = $_SESSION['busqueda_encuesta'];
 

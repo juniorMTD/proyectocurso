@@ -31,7 +31,7 @@ $tipos = $conn->query($consulta_tipos)->fetchAll();
     <div class="clearfix"></div>
 
     <div class="custom-container">
-      <form id="update-form" class="custom-form" action="./php/formu_pregunta_actualizar.php" method="POST" autocomplete="off" data-redirect-url="./index.php?mostrar=formu_encuesta_pregunta&id_pregunta=<?php echo $idencuesta ?>">
+      <form id="update-form" class="custom-form" action="./php/formu_pregunta_actualizar.php" method="POST" autocomplete="off" data-redirect-url="./indexado.php?mostrar=formu_encuesta_pregunta&id_pregunta=<?php echo $idencuesta ?>">
 
         <!-- mensaje de alerta -->
         <div id="alert" class="alert-overlay">
@@ -128,7 +128,7 @@ $tipos = $conn->query($consulta_tipos)->fetchAll();
 
         <div class="custom-form-row">
           <button type="submit" class="custom-btn custom-btn-primary">Actualizar</button>
-          <a href="./index.php?mostrar=formu_encuesta_pregunta&id_pregunta=<?php echo $idencuesta ?>" type="button" class="custom-btn custom-btn-secondary">Salir</a>
+          <a href="./indexado.php?mostrar=formu_encuesta_pregunta&id_pregunta=<?php echo $idencuesta ?>" type="button" class="custom-btn custom-btn-secondary">Salir</a>
         </div>
       </form>
     </div>

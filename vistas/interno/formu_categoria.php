@@ -9,7 +9,7 @@
         <h3>CATEGORIA DE CURSOS</h3>
         <strong>Lista de categorias</strong>
         <hr>
-        <a href="./index.php?mostrar=formu_categoria_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR CATEGORIA</a>
+        <a href="./indexado.php?mostrar=formu_categoria_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR CATEGORIA</a>
         <hr>
         
     </div>
@@ -56,7 +56,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_categoria&page=";
+                                        $url= "indexado.php?mostrar=formu_categoria&page=";
                                         $registros = 15;
                                         $busqueda = "";
 
@@ -88,7 +88,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "index.php?mostrar=formu_categoria&page=";
+                                        $url= "indexado.php?mostrar=formu_categoria&page=";
                                         $registros = 15;
                                         $busqueda = $_SESSION['busqueda_categoria'];
 

@@ -40,7 +40,7 @@ $ruta_archivo = './biblioteca/images/archivos_recursos/'.$datos1['recurso'];
         <div class="clearfix"></div>
 
         <div class="custom-container">
-        <?php echo ' <form id="update-form" class="custom-form" action="./php/formu_recurso_actualizar.php" method="POST" autocomplete="off" enctype="multipart/form-data" data-redirect-url="./index.php?mostrar=formu_recurso&idtemax='. $datos1['idtemax'].'">' ?>
+        <?php echo ' <form id="update-form" class="custom-form" action="./php/formu_recurso_actualizar.php" method="POST" autocomplete="off" enctype="multipart/form-data" data-redirect-url="./indexado.php?mostrar=formu_recurso&idtemax='. $datos1['idtemax'].'">' ?>
                 
                 <!-- mensaje de alerta -->
                 <div id="alert" class="alert-overlay">
@@ -99,7 +99,7 @@ $ruta_archivo = './biblioteca/images/archivos_recursos/'.$datos1['recurso'];
                 </div>
                 <div class="custom-form-row">
                     <button type="submit" class="custom-btn custom-btn-primary">Actualizar</button>
-                    <?php echo '<a href="./index.php?mostrar=formu_recurso&idtemax='.$datos1['idtemax'].'" type="button" class="custom-btn custom-btn-secondary">Salir</a>' ?>
+                    <?php echo '<a href="./indexado.php?mostrar=formu_recurso&idtemax='.$datos1['idtemax'].'" type="button" class="custom-btn custom-btn-secondary">Salir</a>' ?>
                 </div>
             </form>
         </div>

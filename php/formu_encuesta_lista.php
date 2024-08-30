@@ -57,9 +57,9 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$rows['titulox'].'</td>
                 <td class=" ">'.$rows['descripx'].'</td>
                 <td class=" ">'.(($rows['estado_encuesta'] == 1) ? 'SI' : 'NO').'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_encuesta_update&id_update='.$rows['idencuestax'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./indexado.php?mostrar=formu_encuesta_update&id_update='.$rows['idencuestax'].'"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_encuesta_eliminar.php?id_delete='.$rows['idencuestax'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
-                <td class=" last"><a type="button" class="btn btn-warning" href="./index.php?mostrar=formu_encuesta_pregunta&id_pregunta='.$rows['idencuestax'].'"><i class="fa fa-eye"></i> Visualizar</a></td>
+                <td class=" last"><a type="button" class="btn btn-warning" href="./indexado.php?mostrar=formu_encuesta_pregunta&id_pregunta='.$rows['idencuestax'].'"><i class="fa fa-eye"></i> Visualizar</a></td>
             </tr>
             ';
             $contador++;

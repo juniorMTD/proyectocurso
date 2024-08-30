@@ -19,7 +19,7 @@ if ($id_notificacion > 0 && $idusuario > 0) {
 
     if ($actualizar_notificacion->execute($maxmarcado)) {
         // Redirigir a la página de destino después de marcar como leído
-        header("Location: ../index.php?mostrar=frmnotificaciones");
+        header("Location: ../indexado.php?mostrar=frmnotificaciones");
         exit();
     } else {
         echo "Error al marcar la notificación como leída.";

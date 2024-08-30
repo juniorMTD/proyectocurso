@@ -9,7 +9,7 @@
         <h3>TEMAS</h3>
         <strong>Lista de Temas</strong>
         <hr>
-        <a href="./index.php?mostrar=formu_tema_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR TEMAS</a>
+        <a href="./indexado.php?mostrar=formu_tema_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR TEMAS</a>
         <hr>        
     </div>
     <div class="clearfix"></div>
@@ -52,7 +52,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_tema&page=";
+                                        $url = "indexado.php?mostrar=formu_tema&page=";
                                         $registros = 15;
                                         $busqueda = "";
 
@@ -84,7 +84,7 @@
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_tema&page=";
+                                        $url = "indexado.php?mostrar=formu_tema&page=";
                                         $registros = 15;
                                         $busqueda = $_SESSION['busqueda_tema'];
 

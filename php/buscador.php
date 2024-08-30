@@ -35,7 +35,7 @@ ob_start();
                         </div>';
             }else{
                     $_SESSION[$modulo_buscador]=$txt;
-                    header("Location: index.php?mostrar=$modulos_url",true,303);
+                    header("Location: indexado.php?mostrar=$modulos_url",true,303);
                     exit();
                 
             }
@@ -43,7 +43,7 @@ ob_start();
         //eliminar la busqueda
         if(isset($_POST['eliminar_buscador'])){
             unset($_SESSION[$modulo_buscador]);
-            header("Location: index.php?mostrar=$modulos_url",true,303);
+            header("Location: indexado.php?mostrar=$modulos_url",true,303);
             exit();
         }
 

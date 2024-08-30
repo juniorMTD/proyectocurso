@@ -17,7 +17,7 @@ if ($id_sugerencia > 0) {
 
     if ($stmt->execute()) {
         // Redirigir a la página de destino después de marcar como leído
-        header("Location: ../index.php?mostrar=formu_sugerencia_update&id_update=$id_sugerencia");
+        header("Location: ../indexado.php?mostrar=formu_sugerencia_update&id_update=$id_sugerencia");
         exit();
     } else {
         echo "Error al marcar la sugerencia como leída.";

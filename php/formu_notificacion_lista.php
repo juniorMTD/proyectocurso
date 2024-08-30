@@ -65,7 +65,7 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.(($rows['leido'] == 1) ? 'Leido' : 'No leido').'</td>
                 <td class=" ">'.$rows['fec'].'</td>
                 <td class=" ">'.$rows['usux'].'</td>
-                <td class=" last"><a type="button" class="btn btn-primary" href="./index.php?mostrar=formu_notificaciones_update&id_update='.$rows['idnotificacionx'].'"><i class="fa fa-edit"></i> Editar</a></td>
+                <td class=" last"><a type="button" class="btn btn-primary" href="./indexado.php?mostrar=formu_notificaciones_update&id_update='.$rows['idnotificacionx'].'"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_notificacion_eliminar.php?id_delete='.$rows['idnotificacionx'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>
             ';

@@ -71,7 +71,7 @@ if($check_curso->rowCount()>0){
                     <button type="button" class="btn btn-success btn-xs">Completado</button>
                     </td> -->
                     <td>
-                    <a href="index.php?mostrar=frmcontenido&id_mostrar2=<?php echo htmlspecialchars($rows['idtemax'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Visualizar </a>
+                    <a href="indexado.php?mostrar=frmcontenido&id_mostrar2=<?php echo htmlspecialchars($rows['idtemax'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> Visualizar </a>
                     </td>
                 </tr>
                 <?php
@@ -100,7 +100,7 @@ if($check_curso->rowCount()>0){
                         <h3>Los datos estan siendo procesados</h3>
                     </div>
                     <div class="title_right">
-                        <a href="./index.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
+                        <a href="./indexado.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
                     </div>
                 </div>
                 <div class="clearfix"></div>

@@ -9,7 +9,7 @@ require_once "./php/main.php";
             <h3>CURSOS A CARGOS POR LOS DOCENTES</h3>
             <strong>Lista de cursos</strong>
             <hr>
-            <a href="./index.php?mostrar=formu_curso_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR CURSOS</a>
+            <a href="./indexado.php?mostrar=formu_curso_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR CURSOS</a>
             <hr>
 
         </div>
@@ -54,7 +54,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_curso&page=";
+                                        $url = "indexado.php?mostrar=formu_curso&page=";
                                         $registros = 15;
                                         $busqueda = "";
 
@@ -86,7 +86,7 @@ require_once "./php/main.php";
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url = "index.php?mostrar=formu_curso&page=";
+                                        $url = "indexado.php?mostrar=formu_curso&page=";
                                         $registros = 15;
                                         $busqueda = $_SESSION['busqueda_curso'];
 

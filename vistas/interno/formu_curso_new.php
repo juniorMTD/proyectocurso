@@ -20,7 +20,7 @@ $datos=$datos->fetchAll();
         <div class="clearfix"></div>
 
         <div class="custom-container">
-            <form id="registration-form" class="custom-form" action="./php/formu_curso_guardar.php" method="POST" autocomplete="off" data-redirect-url="./index.php?mostrar=formu_curso">
+            <form id="registration-form" class="custom-form" action="./php/formu_curso_guardar.php" method="POST" autocomplete="off" data-redirect-url="./indexado.php?mostrar=formu_curso">
                 
                 <!-- mensaje de alerta -->
                 <div id="alert" class="alert-overlay">
@@ -66,7 +66,7 @@ $datos=$datos->fetchAll();
                 </div>
                 <div class="custom-form-row">
                     <button type="submit" class="custom-btn custom-btn-primary">Guardar</button>
-                    <a href="./index.php?mostrar=formu_curso" type="button" class="custom-btn custom-btn-secondary">Salir</a>
+                    <a href="./indexado.php?mostrar=formu_curso" type="button" class="custom-btn custom-btn-secondary">Salir</a>
                 </div>
             </form>
         </div>
