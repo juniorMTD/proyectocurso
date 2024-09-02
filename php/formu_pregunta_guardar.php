@@ -34,13 +34,6 @@ if (empty($opciones)) {
     echo json_encode($response);
     exit();
 }
-#validar los tipos de datos
-
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9¿?¡! ]{3,40}", $nombre_pregunta)) {
-    $response = array("status" => "error", "message" => "¡El nombre no cumple con el formato!");
-    echo json_encode($response);
-    exit();
-}
 
 
 #guardando datos

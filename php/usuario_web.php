@@ -25,10 +25,12 @@ $clave2 = limpiar_cadena($_POST['clv2']);
 
 #validar los campos vacios
 if (empty($dni) || empty($nombres) || empty($apellidos) || empty($universidad) || empty($facu) || empty($escuela) || empty($email) || empty($celular) || empty($usu) || empty($clave) || empty($clave2)) {
-    $response = array("status" => "error", "message" => "¡Todos los campos son obligatorios!");
+    $response = array("status" => "error", "message" => "¡Todos los campos son (*) son obligatorios!");
     echo json_encode($response);
     exit();
 }
+
+
 
 
 
@@ -52,19 +54,19 @@ if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $apellidos)) {
     exit();
 }
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $universidad)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,200}", $universidad)) {
     $response = array("status" => "error", "message" => "¡La universidad no cumple con el formato solicitado!");
     echo json_encode($response);
     exit();
 }
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $facu)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,200}", $facu)) {
     $response = array("status" => "error", "message" => "¡La facultad no cumple con el formato solicitado!");
     echo json_encode($response);
     exit();
 }
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,40}", $escuela)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{3,200}", $escuela)) {
     $response = array("status" => "error", "message" => "¡La escuela no cumple con el formato solicitado!");
     echo json_encode($response);
     exit();
@@ -78,6 +80,23 @@ if (verificar_datos("[0-9]{9}", $celular)) {
     exit();
 }
 
+if (verificar_datos("[a-zA-Z0-9]{2,30}", $usu)) {
+    $response = array("status" => "error", "message" => "¡Elusuario no cumple con el formato solicitado!");
+    echo json_encode($response);
+    exit();
+}
+
+if (verificar_datos("[a-zA-Z0-9$@.-]{2,100}", $clave)) {
+    $response = array("status" => "error", "message" => "¡La clave no cumple con el formato solicitado!");
+    echo json_encode($response);
+    exit();
+}
+
+if (verificar_datos("[a-zA-Z0-9$@.-]{2,100}", $clave2)) {
+    $response = array("status" => "error", "message" => "¡La clave para confirmar no cumple con el formato solicitado!");
+    echo json_encode($response);
+    exit();
+}
 
 # Verificar si las contraseñas coinciden
 if ($clave !== $clave2) {

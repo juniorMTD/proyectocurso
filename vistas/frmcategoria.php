@@ -23,72 +23,55 @@ if($check_curso->rowCount()>0){
 ?>
 
 <!-- page content -->
-<div class="right_col" role="main">
-    <div class="">
+<div class="right_col" role="main"  id="fondototal">
+    <div >
         <div class="page-title">
             <div class="title_left">
-                <h3><?php echo htmlspecialchars($datos1['nomx'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                <h3 class="titulos-contenido" >CATEGORIA: <?php echo htmlspecialchars($datos1['nomx'], ENT_QUOTES, 'UTF-8'); ?></h3>
             </div>
             <div class="title_right">
                 <a href="./indexado.php?mostrar=frmprincipal" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
             </div>
         </div>
-        <div class="clearfix"></div>
+        <br><br><br>
 
         <div class="row">
-            <div class="col-md-12">
-                <div class="x_panel">
-                    <div class="x_content">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-                            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            </div>
 
-                            <div class="clearfix"></div>
-                            <?php 
-                                foreach($datos as $rows){
-                            ?>
-                            <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-                            
-                                <div class="well profile_view">
-                                
-                                    <div class="col-sm-12">
-                                        <h4 class="brief"><i>CURSO</i></h4>
-                                        <div class="left col-xs-7">
-                                            <h2><?php echo htmlspecialchars($rows['nombre'], ENT_QUOTES, 'UTF-8'); ?></h2>
-                                            <p><strong>Docente: </strong> <?php echo htmlspecialchars($rows['docentex'], ENT_QUOTES, 'UTF-8'); ?></p>
-                                            <ul class="list-unstyled">
-                                                <li><i class="fa fa-phone"></i> <strong>Celular: </strong> <?php echo htmlspecialchars($rows['celularx'], ENT_QUOTES, 'UTF-8'); ?></li>
-                                            </ul>
-                                        </div>
-                                        <div class="right col-xs-5 text-center">
-                                            <img src="./biblioteca/images/img.jpg" alt="" class="img-circle img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 bottom text-center">
-                                        <div class="col-xs-12 col-sm-6 emphasis">
-                                            <p class="ratings">
-                                                <span class="fa fa-user"> <?php echo htmlspecialchars(($rows['estadox']== 1) ? 'Activo' : 'Inactivo', ENT_QUOTES, 'UTF-8'); ?></span>
-                                            </p>
-                                        </div>
-                                        <div class="col-xs-12 col-sm-6 emphasis">
-                                            <a href="indexado.php?mostrar=frmtema&id_mostrar1=<?php echo htmlspecialchars($rows['idcursox'], ENT_QUOTES, 'UTF-8'); ?>" type="button" class="btn btn-success btn-xs">
-                                                <i class="fa fa-book"> </i> TEMAS
-                                            </a>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </div>
-                            <?php
-                                } 
-                            ?>
+            <div class="clearfix"></div>
+            <?php 
+                foreach($datos as $rows){
+                    if($rows['estadox']=='1'){
 
+                    
+            ?>
+            <div class="col-md-4 col-sm-4 col-xs-12 profile_details" >
+                <div class="profile_view1">
+                    <div class="content">
+                        <div class="col-sm-12">
+                            <div class="left col-xs-7">
+                                <h5><i class="fa fa-cc"></i> <strong>CURSO: <br> </strong> <?php echo htmlspecialchars($rows['nombre'], ENT_QUOTES, 'UTF-8'); ?></h5>
+                                <p><i class="fa fa-child"></i> <strong>Docente: <br> </strong> <?php echo htmlspecialchars($rows['docentex'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p><i class="fa fa-phone"></i> <strong>Docente: <br> </strong> <?php echo htmlspecialchars($rows['celularx'], ENT_QUOTES, 'UTF-8'); ?></p>
+                            </div>
+                            <div class="right col-xs-5 text-center">
+                                <img src="./biblioteca/images/img.jpg" alt="" class="img-circle img-responsive">
+                            </div>
                         </div>
+                    </div>
+                    <div class="overlay">
+                        <a href="indexado.php?mostrar=frmtema&id_mostrar1=<?php echo htmlspecialchars($rows['idcursox'], ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-success">
+                            Ver Temas
+                        </a>
                     </div>
                 </div>
             </div>
+            <?php }
+                } 
+            ?>
         </div>
+                   
     </div>
 </div>
 <!-- /page content -->

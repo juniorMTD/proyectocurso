@@ -19,13 +19,13 @@ if ($login_clv == "") {
 
 
 #verificar la integridad de los datos
-if (verificar_datos("[a-zA-Z0-9]{4,20}", $login_usu)) {
+if (verificar_datos("[a-zA-Z0-9]{2,30}", $login_usu)) {
     echo    '<div class="notification is-danger is-light">
             <strong>¡El usuario no cumple con el formato, completar!</strong><br>
             </div>';
     exit();
 }
-if (verificar_datos("[a-zA-Z0-9$@.-]{6,100}", $login_clv)) {
+if (verificar_datos("[a-zA-Z0-9$@.-]{2,100}", $login_clv)) {
     echo    '<div class="notification is-danger is-light">
             <strong>¡La contraseña no cumple con el formato, completar!</strong><br>
             </div>';

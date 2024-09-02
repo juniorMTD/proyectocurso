@@ -1,10 +1,10 @@
 <div class="custom-login">
     <div class="container">
             <div class="main-container">
-                <div class="col-lg-6 custom-info-section">
+                <div class="custom-info-section">
                     <img src="./biblioteca/banner/loginimagen.jpg" alt="Info Image" class="img-fluid">
                 </div>
-                <div class="col-lg-6 custom-login-section">
+                <div class="custom-login-section">
                     <div class="login-content">
                         <div class="logo">
                             <img style="border-radius:50%" src="./biblioteca/images/logo.jpg" alt="Logo TERRACIVIL">
@@ -22,8 +22,8 @@
                             </div>
                             <br>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">ENTRAR</button><br>
-                                <a href="./index.php?mostrar=pag"  class="btn btn-warning btn-block">SALIR</a>
+                                <button type="submit" class="register-btn">ENTRAR</button><br>
+                                <a href="./index.php?mostrar=pag"  class="register-btn btn-danger btn-block">SALIR</a>
                             </div>
 
                             <?php

@@ -25,11 +25,11 @@ if ($check_tema->rowCount() > 0) {
 ?>
 
     <!-- page content -->
-    <div class="right_col" role="main">
+    <div class="right_col" role="main" id="fondototal">
         <div class="">
-            <div class="page-title">
+            <div class="page-title row">
                 <div class="title_left">
-                    <h3>CURSO: <?php echo htmlspecialchars($datos1['curso'], ENT_QUOTES, 'UTF-8'); ?> <br> TEMA: <?php echo htmlspecialchars($datos1['tema'], ENT_QUOTES, 'UTF-8'); ?></h3>
+                    <h6  class="titulos-contenido">CURSO: <?php echo htmlspecialchars($datos1['curso'], ENT_QUOTES, 'UTF-8'); ?> <br><br>TEMA: <br> <?php echo htmlspecialchars($datos1['tema'], ENT_QUOTES, 'UTF-8'); ?></h6>
                 </div>
                 <div class="title_right">
                     <a href="frmtema.html" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>

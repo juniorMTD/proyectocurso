@@ -23,11 +23,11 @@
                                     if(isset($_POST['modulo_buscador'])){
                                         require_once "./php/buscador.php";
                                     }
-                                    if (!isset($_SESSION['busqueda_personal']) && empty($_SESSION['busqueda_personal'])) {
+                                    if (!isset($_SESSION['busqueda_usuario']) && empty($_SESSION['busqueda_usuario'])) {
                                 ?>
                                     <div class="x_title">
                                         <form action="" method="POST" autocomplete="off" class="custom-search-form">
-                                            <input type="hidden" name="modulo_buscador" value="personal">
+                                            <input type="hidden" name="modulo_buscador" value="usuario">
                                             <div class="custom-field custom-has-addons">
                                                 <div class="custom-control custom-is-expanded">
                                                     <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" 
@@ -44,28 +44,28 @@
                                     </div>
 
                                     <?php
-                                        if(!isset($_GET['page'])){
-                                            $pagina= 1;
-                                        } else {
-                                            $pagina = (int) $_GET['page'];
-                                            if($pagina<=1){
-                                                $pagina = 1;
-                                            }
+                                       if (!isset($_GET['page'])) {
+                                        $pagina = 1;
+                                    } else {
+                                        $pagina = (int) $_GET['page'];
+                                        if ($pagina <= 1) {
+                                            $pagina = 1;
                                         }
-                                        $pagina = limpiar_cadena($pagina);
-                                        $url= "indexado.php?mostrar=formu_usuario&page=";
-                                        $registros = 15;
-                                        // $busqueda = $_SESSION['busqueda_categoria'];
+                                    }
+                                    $pagina = limpiar_cadena($pagina);
+                                    $url = "indexado.php?mostrar=formu_usuario&page=";
+                                    $registros = 15;
+                                    $busqueda = "";
 
-                                        require_once "./php/formu_usuario_lista.php";
+                                    require_once "./php/formu_usuario_lista.php";
                                     } else {
                                     ?>
                                     <div class="columns">
                                         <div class="column">
                                             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off">
-                                                <input type="hidden" name="modulo_buscador" value="personal">
-                                                <input type="hidden" name="eliminar_buscador" value="personal">
-                                                <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busqueda_personal'] ?>"</strong></p>
+                                                <input type="hidden" name="modulo_buscador" value="usuario">
+                                                <input type="hidden" name="eliminar_buscador" value="usuario">
+                                                <p style="color:#000">Estas buscando <strong>"<?php echo $_SESSION['busqueda_usuario'] ?>"</strong></p>
                                                 <br>
                                                 <button class="custom-button custom-is-danger" type="submit">Eliminar Busqueda</button>
                                             </form>
@@ -74,20 +74,20 @@
 
                                     <?php
 
-                                        //para eliminar personal
+                                        //para eliminar usuario
 
-                                        if(!isset($_GET['page'])){
-                                            $pagina= 1;
+                                        if (!isset($_GET['page'])) {
+                                            $pagina = 1;
                                         } else {
                                             $pagina = (int) $_GET['page'];
-                                            if($pagina<=1){
+                                            if ($pagina <= 1) {
                                                 $pagina = 1;
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "indexado.php?mostrar=formu_usuario&page=";
+                                        $url = "indexado.php?mostrar=formu_usuario&page=";
                                         $registros = 15;
-                                        // $busqueda = $_SESSION['busqueda_categoria'];
+                                        $busqueda = $_SESSION['busqueda_usuario'];
 
                                         require_once "./php/formu_usuario_lista.php";
                                     }

@@ -42,7 +42,7 @@ $tabla.='
                 <th class="column-title">Categoria</th>
                 <th class="column-title">Curso</th>
                 <th class="column-title">Tema</th>
-                <th class="column-title">Estado</th>
+                <th class="column-title">Publicado</th>
                 <th colspan="3" class="column-title"><span class="nobr">Accion</span>
                 </th>
             </tr>
@@ -64,7 +64,7 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$rows['cate'].'</td>
                 <td class=" ">'.$rows['curso'].'</td>
                 <td class=" ">'.$rows['tema'].'</td>
-                <td class=" ">'.(($rows['esta'] == 1) ? 'Activo' : 'Inactivo').'</td>
+                <td class=" ">'.(($rows['esta'] == 1) ? 'SI' : 'NO').'</td>
                 <td class=" last"><a type="button" class="btn btn-primary" href="./indexado.php?mostrar=formu_tema_update&id_update='.$rows['id'].'"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_tema_eliminar.php?id_delete='.$rows['id'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
                 <td class=" last"><a type="button" class="btn btn-warning" href="./indexado.php?mostrar=formu_recurso&idtemax='.$rows['id'].'"><i class="fa fa-book"></i> Recursos</a></td>

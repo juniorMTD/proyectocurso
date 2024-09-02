@@ -1,15 +1,15 @@
     <!-- page content -->
-    <div class="right_col" role="main">
-        <div class="">
+    <div class="right_col" id="fondototal" role="main">
+        <!-- <div class="">
             <div class="row">
-                <div class="animated flipInY col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <div>
-                        <img style="border-radius: 50%;width: 100%;" src="biblioteca/images/logo.jpg" alt="">
+                <div class="animated flipInY col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div style="">
+                        <h1 style="text-align:center;color:white;font-size:5em"></h1>
                     </div>
                 </div>
             </div>
             <br>
             <br>
-        </div>
+        </div> -->
     </div>
     <!-- /page content -->

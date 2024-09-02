@@ -38,7 +38,7 @@ $tabla.='
                 <th class="column-title">Categoria</th>
                 <th class="column-title">Docente</th>
                 <th class="column-title">Celular</th>
-                <th class="column-title">Estado</th>
+                <th class="column-title">Publicado</th>
                 <th colspan="2" class="column-title"><span class="nobr">Accion</span>
                 </th>
             </tr>
@@ -61,7 +61,7 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$rows['nomx'].'</td>
                 <td class=" ">'.$rows['docentex'].'</td>
                 <td class=" ">'.$rows['celularx'].'</td>
-                <td class=" ">'.(($rows['estadox'] == 1) ? 'Activo' : 'Inactivo').'</td>
+                <td class=" ">'.(($rows['estadox'] == 1) ? 'SI' : 'NO').'</td>
                 <td class=" last"><a type="button" class="btn btn-primary" href="./indexado.php?mostrar=formu_curso_update&id_update='.$rows['idcursox'].'"><i class="fa fa-edit"></i> Editar</a></td>
                 <td class=" last"><button type="button" class="btn btn-danger delete-btn" data-url="php/formu_curso_eliminar.php?id_delete='.$rows['idcursox'].'"><i class="fa fa-trash"></i> Eliminar</button></td>
             </tr>

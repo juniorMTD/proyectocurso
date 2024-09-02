@@ -21,14 +21,8 @@ if (empty($nombre) || empty($descrip)) {
 #validar los tipos de datos
 
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{3,40}", $nombre)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{3,200}", $nombre)) {
     $response = array("status" => "error", "message" => "¡El nombre no cumple con el formato!");
-    echo json_encode($response);
-    exit();
-}
-
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{3,40}", $descrip)) {
-    $response = array("status" => "error", "message" => "¡La descripcion no cumple con el formato!");
     echo json_encode($response);
     exit();
 }

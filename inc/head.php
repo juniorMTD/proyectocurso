@@ -17,3 +17,4 @@
     <link href="./css/custom.min.css" rel="stylesheet">
     <link href="./css/select2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/sweetalert.css">
+    <link href="https://fonts.cdnfonts.com/css/bankgothic-md-bt" rel="stylesheet">

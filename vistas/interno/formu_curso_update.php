@@ -65,7 +65,7 @@ if($check_curso->rowCount()>0){
                             </select>
                     </div>
                     <div class="custom-form-group">
-                        <label for="custom-estado">Estado del Curso <small>(Marcar para activar)</small> </label>
+                        <label for="custom-estado">Estado del Curso <small>(Marcar para publicar)</small> </label>
                         <input type="checkbox" name="estado" class="custom-form-control" value="1" <?php echo $datos1['estadox'] ? 'checked' : '';?>>
                     </div>
                 </div>

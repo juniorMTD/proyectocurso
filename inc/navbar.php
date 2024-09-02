@@ -29,9 +29,9 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
 ?>
 
   <div class="container body">
-    <div class="main_container">
-
-      <div class="col-md-3 left_col">
+    <div class="main_container" >
+      
+      <div class="col-md-3 left_col" >
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
             <a href="./indexado.php?mostrar=home" class="site_title"><i class="fa fa-building"></i> <span>TERRACIVIL</span></a>
@@ -40,7 +40,7 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
           <div class="clearfix"></div>
 
           <!-- menu profile quick info -->
-          <div class="profile clearfix">
+          <div class="profile clearfix" >
             <div class="profile_pic">
               <img src="./biblioteca/images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
@@ -53,8 +53,8 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
           <br />
 
           <!-- sidebar menu -->
-          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-            <div class="menu_section">
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" >
+            <div class="menu_section" >
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
@@ -83,8 +83,8 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
                 </li>
                 <li><a><i class="fa fa-users"></i> Gestion Usuarios<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="./indexado.php?mostrar=formu_matricula">Matricula</a></li>
-                    <li><a href="./indexado.php?mostrar=formu_usuario">Usuarios</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_matricula">Usuarios</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_usuario">Personal</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart"></i> Gestion Encuestas<span class="fa fa-chevron-down"></span></a>
@@ -101,14 +101,14 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
       </div>
 
       <!-- top navigation -->
-      <div class="top_nav">
+      <div class="top_nav" >
         <div class="nav_menu">
-          <nav>
+          <nav >
             <div class="nav toggle">
               <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" >
               <li class="">
                 <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                   <img src="./biblioteca/images/img.jpg" alt=""><?php ob_start();
@@ -191,7 +191,10 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
     ?>
     <div class="container body">
     <div class="main_container">
-
+      <!-- AQUI CAMBIAR EL ENLACE DE WHATSAPP -->
+      <a href="https://chat.whatsapp.com/invite/xxxxxxx" class="whatsapp-float" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" class="whatsapp-icon">
+      </a>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">

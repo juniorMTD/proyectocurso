@@ -1853,18 +1853,18 @@ h4.graph_title {
 .tile-stats {
     position: relative;
     display: block;
-    margin-bottom: 12px;
-    border: 1px solid #E4E4E4;
-    -webkit-border-radius: 5px;
-    overflow: hidden;
-    padding-bottom: 5px;
-    -webkit-background-clip: padding-box;
-    -moz-border-radius: 5px;
-    -moz-background-clip: padding;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
     background-clip: padding-box;
-    background: #FFF;
-    transition: all 300ms ease-in-out
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7)), url(../biblioteca/images/fondo3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 300ms ease-in-out;
+    width: 250px; /* Establece un ancho fijo */
+    height: 200px; /* Establece una altura fija */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
 }
 .tile-stats:hover .icon i {
     animation-name: transformAnimation;

@@ -46,7 +46,7 @@ if (empty($curso)) {
 
 #validar los tipos de datos
 
-if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{3,40}", $tema)) {
+if (verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9 ]{3,200}", $tema)) {
     $response = array("status" => "error", "message" => "¡El nombre del tema no cumple con el formato!");
     echo json_encode($response);
     exit();

@@ -59,7 +59,7 @@ if($check_tema->rowCount()>0){
                             </select>
                     </div>
                     <div class="custom-form-group">
-                        <label for="custom-estado">Estado del estado (*)</label>
+                        <label for="custom-estado">Marcar para publicar</label>
                         <input type="checkbox" name="estado" value="1" <?php echo $datos1['estadox'] ? 'checked' : '';?> class="custom-form-control">
                     </div>
                 </div>

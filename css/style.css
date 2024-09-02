@@ -1,3 +1,28 @@
+@import url('https://fonts.cdnfonts.com/css/bankgothic-md-bt');
+
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 10px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+}
+
+.whatsapp-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding: 10px;
+}
+
 .page-ellipsis, .page-link, 
 .next-button, .prev-button {
     -moz-appearance: none;
@@ -213,20 +238,35 @@ print {
 
 .custom-logo img {
     max-height: 60px;
+    border-radius:50%;
 }
 
 
 .custom-banner {
     position: relative;
-    background: url('../biblioteca/banner/estructuras.jpg') no-repeat center center;
+    background: url('../biblioteca/banner/fondo2.webp') no-repeat center center;
     background-size: cover;
+    
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    
     text-align: center;
 }
+
+
+#fondototal{
+    background-image: url('../biblioteca/images/fondo5.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top; 
+    background-attachment: fixed; 
+    background-position: center calc(20% - 0px);
+    z-index: 1;
+}
+
 
 .custom-banner::before {
     content: "";
@@ -247,7 +287,23 @@ print {
     font-size: 3rem;
     margin-bottom: 20px;
     margin: 0 20% 5% 20%;
+    color:#fff;
+     font-family:'BankGothic Md BT';
 }
+
+.custom-banner-content .titulo{
+    font-size: 60px;
+    text-shadow: 5px -5px 8px #B86E2C;
+} 
+
+.custom-banner-content .subtitulo{
+    text-shadow: 6px -6px 8px #03344C,
+    -5px -5px 8px #03344C,
+    -2px 2px 8px #03344C,
+    2px -2px 8px #03344C;
+} 
+
+
 
 .custom-buttons {
     display: flex;
@@ -256,7 +312,7 @@ print {
 }
 
 .custom-btn {
-    background: #4144f4;
+    background: #03344C;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -265,8 +321,10 @@ print {
 }
 
 .custom-btn:hover {
-    background: #4d4d5e;
+    background: #B86E2C;
     color: white;
+    padding: 12px 22px;
+    box-shadow: 0px 0px 10px 2px #fff;
 }
 
 
@@ -357,6 +415,7 @@ print {
     background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(../biblioteca/banner/estructuras.jpg);
 }
 
+
 .registration-container {
     background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -364,12 +423,13 @@ print {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 80%;
     max-width: 700px;
-    background: linear-gradient(to bottom, #413467, #280b47);
+    background: linear-gradient(to bottom, #05334b, #012232);
 }
 
 .registration-form {
     display: flex;
     flex-direction: column;
+   
     
 }
 
@@ -418,8 +478,8 @@ print {
 }
 
 .register-btn {
-    background-color: #8b4eb4;
-    border: none;
+    background-color: #012232;
+    border: 2px solid #fff;
     color: white;
     padding: 15px 60px 15px 60px;
     border-radius: 5px;
@@ -428,10 +488,8 @@ print {
 }
 
 .register-btn:hover {
-    background-color: #59209b;
-    color:white;
+    box-shadow: 0 0 15px 2px #fff;
 }
-
 
 
 /* para mis mensjaes de alerta*/
@@ -547,6 +605,18 @@ print {
     .custom-form-row {
         flex-direction: column;
     }
+    .form-row{
+        flex-direction: column;
+    }
+    .registration-container {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding-top: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 80%;
+        max-width: 700px;
+        background: linear-gradient(to bottom, #05334b, #012232);
+    }
 }
 
 
@@ -560,4 +630,97 @@ print {
     margin-right: 10px;
     width: 20px;
     height: 20px;
+}
+
+
+/* para los titulos de cada pagina del usuario final */
+
+.titulos-contenido{
+    text-align:center;
+    color:#fff;
+    text-shadow: 2px 2px 0px black,-2px -2px 0px black, -2px 2px 0px black,2px -2px 0px black;
+}
+
+
+
+/* para el formulario principal en dopnde estan las categorias*/
+
+#form-categorias{
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 10px;
+    background-clip: padding-box;
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7)), url(../biblioteca/images/fondo3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all 300ms ease-in-out;
+    width: 250px; /* Establece un ancho fijo */
+    height: 200px; /* Establece una altura fija */
+    overflow: hidden; /* Oculta el contenido que se desborda */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+}
+
+#form-categorias:hover {
+    color:#fff;
+    font-size: 10px;
+    box-shadow:0 0 15px 10px #000;
+}
+
+
+/* para ver los cursos de las categorias*/
+
+.profile_view1 {
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border:none;
+    margin-bottom: 20px;
+    width: 350px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.profile_view1 .content {
+    transition: opacity 0.3s ease;
+    
+}
+
+.profile_view1 .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.9),rgba(0,0,0,0.7)), url(../biblioteca/images/fondo4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    
+}
+
+.profile_view1:hover .content {
+    opacity: 0;
+}
+
+.profile_view1:hover .overlay {
+    opacity: 1;
+}
+
+.overlay .btn {
+    color: #fff;
+}
+
+.overlay .btn-success:hover {
+    color: #fff;
+    border:none;
+    box-shadow: 0 0 10px 5px #fff;
 }
