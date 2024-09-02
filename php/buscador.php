@@ -1,9 +1,8 @@
 <?php
 ob_start();
-    // $paciente_id=limpiar_cadena($_POST['paciente_id']);
-    
+   
     $modulo_buscador=limpiar_cadena($_POST['modulo_buscador']);
-    $modulos=["categoria","curso","tema","recurso","sugerencia","encuesta","usuario"];  //cadena para los diferentes modulos de busqueda
+    $modulos=["categoria","curso","tema","recurso","sugerencia","encuesta","usuario","personal"];  //cadena para los diferentes modulos de busqueda
 
     if(in_array($modulo_buscador,$modulos)){
         $modulos_url=[
@@ -13,12 +12,8 @@ ob_start();
             "recurso"=>"formu_recurso",
             "sugerencia"=>"formu_sugerencias",
             "encuesta"=>"formu_encuesta",
-            "usuario"=>"formu_usuario"
-            // "consulta"=>"consulta_form",
-            // "historiaantigua"=>"historial_form_antiguo",
-            // "historiapaciente"=>"historia_consulta_form&idpaciente_form_lista=$paciente_id",
-            // "consultapaciente"=>"paciente_form_lista&idpaciente_form_lista=$paciente_id",
-            // "historiaxconsulta"=>""
+            "usuario"=>"formu_usuario",
+            "personal"=>"formu_personal"
         ];
 
         $modulos_url=$modulos_url[$modulo_buscador];

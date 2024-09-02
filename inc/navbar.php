@@ -83,8 +83,8 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
                 </li>
                 <li><a><i class="fa fa-users"></i> Gestion Usuarios<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="./indexado.php?mostrar=formu_matricula">Usuarios</a></li>
-                    <li><a href="./indexado.php?mostrar=formu_usuario">Personal</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_usuario">Usuarios</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_personal">Personal</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-bar-chart"></i> Gestion Encuestas<span class="fa fa-chevron-down"></span></a>

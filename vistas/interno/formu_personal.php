@@ -6,8 +6,11 @@
 <div class="right_col" role="main">
     <div class="">
     <div >
-        <h3>MATRICULA</h3>
-        <strong>Lista de Matricula</strong>
+        <h3>PERSONAL</h3>
+        <strong>Lista de Personal</strong>
+        <hr>
+        <a href="./indexado.php?mostrar=formu_personal_new" type="button" class="btn btn-success"><i class="fa fa-user"></i> AGREGAR PERSONAL</a>
+        <hr>
     </div>
     <div class="clearfix"></div>
 
@@ -30,7 +33,7 @@
                                             <div class="custom-field custom-has-addons">
                                                 <div class="custom-control custom-is-expanded">
                                                     <input class="custom-input custom-is-rounded" type="text" name="txt_buscador" 
-                                                        placeholder="¿Puedes realizar la búsqueda por dni del usuario?" 
+                                                        placeholder="¿Puedes realizar la búsqueda por nombre del personal?" 
                                                         pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" required>
                                                 </div>
                                                 <div class="custom-control">
@@ -43,20 +46,20 @@
                                     </div>
 
                                     <?php
-                                        if(!isset($_GET['page'])){
-                                            $pagina= 1;
-                                        } else {
-                                            $pagina = (int) $_GET['page'];
-                                            if($pagina<=1){
-                                                $pagina = 1;
-                                            }
+                                       if (!isset($_GET['page'])) {
+                                        $pagina = 1;
+                                    } else {
+                                        $pagina = (int) $_GET['page'];
+                                        if ($pagina <= 1) {
+                                            $pagina = 1;
                                         }
-                                        $pagina = limpiar_cadena($pagina);
-                                        $url= "indexado.php?mostrar=formu_matricula&page=";
-                                        $registros = 15;
-                                        // $busqueda = $_SESSION['busqueda_categoria'];
+                                    }
+                                    $pagina = limpiar_cadena($pagina);
+                                    $url = "indexado.php?mostrar=formu_personal&page=";
+                                    $registros = 15;
+                                    $busqueda = "";
 
-                                        require_once "./php/formu_matricula_lista.php";
+                                    require_once "./php/formu_personal_lista.php";
                                     } else {
                                     ?>
                                     <div class="columns">
@@ -75,20 +78,20 @@
 
                                         //para eliminar personal
 
-                                        if(!isset($_GET['page'])){
-                                            $pagina= 1;
+                                        if (!isset($_GET['page'])) {
+                                            $pagina = 1;
                                         } else {
                                             $pagina = (int) $_GET['page'];
-                                            if($pagina<=1){
+                                            if ($pagina <= 1) {
                                                 $pagina = 1;
                                             }
                                         }
                                         $pagina = limpiar_cadena($pagina);
-                                        $url= "indexado.php?mostrar=formu_matricula&page=";
+                                        $url = "indexado.php?mostrar=formu_personal&page=";
                                         $registros = 15;
-                                        // $busqueda = $_SESSION['busqueda_categoria'];
+                                        $busqueda = $_SESSION['busqueda_personal'];
 
-                                        require_once "./php/formu_matricula_lista.php";
+                                        require_once "./php/formu_personal_lista.php";
                                     }
                                     ?>
 
