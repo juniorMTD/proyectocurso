@@ -57,11 +57,6 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
             <div class="menu_section" >
               <h3>General</h3>
               <ul class="nav side-menu">
-                <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="indexado.html">Perfil</a></li>
-                  </ul>
-                </li>
                 <li><a href="./indexado.php?mostrar=frmprincipal"><i class="fa fa-pie-chart"></i> Recursos</a>
                 </li>
                 <li>
@@ -224,7 +219,7 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> Inicio <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="indexado.html">Perfil</a></li>
+                    <li><a href="./indexado.php?mostrar=formu_usuario_update">Perfil</a></li>
                   </ul>
                 </li>
                 <li><a href="./indexado.php?mostrar=frmprincipal"><i class="fa fa-pie-chart"></i> Recursos</a>

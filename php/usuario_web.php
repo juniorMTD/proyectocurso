@@ -120,7 +120,7 @@ $check_dni = null;
 $check_usuario = $start->Conexiondb();
 $check_usuario = $check_usuario->query('select usux from usux where usux="' . $usu . '";');
 if ($check_usuario->rowCount() > 0) {
-    $response = array("status" => "error", "message" => "¡El usuario ya esta registrado!");
+    $response = array("status" => "error", "message" => "¡El usuario ya esta registrado, intente con otro!");
     echo json_encode($response);
     exit();
 }

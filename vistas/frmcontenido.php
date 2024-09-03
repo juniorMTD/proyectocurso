@@ -7,7 +7,6 @@ $id = limpiar_cadena($id);
 
 $start = new Conexion();
 
-
 $check_tipo = $start->Conexiondb();
 $check_tipo = $check_tipo->query("select * from tipo_recursox");
 $datos = $check_tipo->fetchAll();

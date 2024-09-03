@@ -6,7 +6,29 @@ $start = new Conexion();
 $conn = $start->Conexiondb();
 $datos = $conn->query("select * from categoriax;");
 $datos = $datos->fetchAll();
+
+
+$check_encuesta=$start->Conexiondb();
+$check_encuesta=$check_encuesta->query("select estado_encuesta from encuestax order by idencuestax desc limit 0,1");
+$estado_encuesta=$check_encuesta->fetch();
+
+
+if($estado_encuesta==1){
 ?>
+
+<div class="right_col" role="main">
+    <div class="">
+    <div >
+        <h3>ENCUESTA</h3>
+        <strong>Por favor responda con sinceridad cada pregunta</strong>      
+    </div>
+</div>
+
+
+<?php
+} else if($estado_encuesta==0) {
+?>
+
 <!-- page content -->
 <div  class="right_col" role="main" id="fondototal">
     <div  class="">
@@ -43,3 +65,7 @@ $datos = $datos->fetchAll();
     </div>
 </div>
 <!-- /page content -->
+
+<?php
+}
+?>
