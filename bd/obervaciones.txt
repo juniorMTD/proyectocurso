@@ -1,23 +1,24 @@
 1. 
-temas de los cursos y los cursos de las categorias -> no mostrar los temas cuando esta inactivo -> no aparezca el boton visualizar
+temas de los cursos y los cursos de las categorias -> no mostrar los temas cuando esta inactivo -> no aparezca el boton visualizar OK
+
 y mencione "Por el momento no  podemos mostrar el contenido"	OK
 
-2. previsualizar los recursos
+2. previsualizar los recursos 
 
 3. suscritos visualizar -> para eliminar cuentas ok
 
-4. personal
+4. personal OK
 
 5. encuensta -> eliminar (priorizar)
 
 ***********************************************************
- tipo de letra 
+ tipo de letra OK
 
 whatsapp OK
 
 enlaces para recursos 
 
-editar perfil
+editar perfil OK
 
 **********************************
 
