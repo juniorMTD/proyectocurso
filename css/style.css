@@ -724,3 +724,31 @@ print {
     border:none;
     box-shadow: 0 0 10px 5px #fff;
 }
+
+
+.x_panel h3 {
+    font-weight: bold;
+    text-align: center;
+    color:#fff;
+}
+
+.x_panel small {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.required {
+    color: red;
+}
+
+.radio label {
+    margin-left: 15px;
+}
+
+.radio input[type="radio"] {
+    margin-right: 5px;
+}
+.checkbox input[type="checkbox"] {
+    margin-right: 10px;
+}

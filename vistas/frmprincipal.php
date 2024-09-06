@@ -36,12 +36,12 @@ if($encuesta && $encuesta['estado_encuesta']==1){
 <!-- jdksdjssddjsdkskdsd -->
 
     <div class="right_col" role="main">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="x_panel">
+                <div class="x_panel" style="background:#2A3F54">
                     <div class="x_title">
-                        <h2>ENCUESTA</h2>
-                        <p>Por favor responda con sinceridad cada pregunta</p>
+                        <h3>ENCUESTA</h3>
+                        <center><small>Por favor responda con sinceridad cada pregunta</small></center>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -68,18 +68,18 @@ if($encuesta && $encuesta['estado_encuesta']==1){
                                     <?php } ?>
                                 <?php } elseif ($pregunta['idtipo_preguntax'] == 2) { // Opción múltiple ?>
                                     <?php foreach ($opciones as $opcion) { ?>
-                                        <div class="radio">
-                                        <label><input type="checkbox" name="preguntas[<?php echo $pregunta['idpreguntax']; ?>][]" value="<?php echo htmlspecialchars($opcion['idopcionx'], ENT_QUOTES, 'UTF-8'); ?>">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" name="preguntas[<?php echo $pregunta['idpreguntax']; ?>][]" value="<?php echo htmlspecialchars($opcion['idopcionx'], ENT_QUOTES, 'UTF-8'); ?>">
                                             <?php echo htmlspecialchars($opcion['texto_opcionx'], ENT_QUOTES, 'UTF-8'); ?></label>
                                         </div>
                                     <?php } ?>
-
                                 <?php } ?>
                             </div>
-
                         <?php } ?>
-                            <div class="form-group text-center">
-                                <button type="submit" class="btn btn-success btn-sm">Enviar</button>
+                            <div class="form-group text-center" >
+                                <div class="col-md-12 col-sm-12 col-xs-12 mx-auto">
+                                    <button type="submit" class="btn btn-success btn-sm">Enviar</button>
+                                </div>
                             </div>
                         </form>
                     </div>

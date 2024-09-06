@@ -39,7 +39,7 @@ if ($check_tema->rowCount() > 0) {
                 <?php
                 foreach ($datos as $rows) {
                 ?>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="x_panel">
                             <div class="x_title">
                                 <h2><?php echo htmlspecialchars($rows['tipox'], ENT_QUOTES, 'UTF-8'); ?><small>Sesiones</small></h2>
@@ -59,13 +59,13 @@ if ($check_tema->rowCount() > 0) {
                                 ?>
 
                                         <article class="media event">
-                                            <a class="pull-left date">
-                                                <img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image">
-                                            </a>
                                             <div class="media-body">
                                                 <p><?php echo htmlspecialchars($rows1['re'], ENT_QUOTES, 'UTF-8'); ?></p>
-                                                <a class="title" href="./biblioteca/images/archivos_recursos/<?php echo htmlspecialchars($rows1['recur'], ENT_QUOTES, 'UTF-8'); ?>" download><img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image"></a>
+                                                <div id="file-preview" data-file-path="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" data-file-type="<?php echo $fileType; ?>">
+                                                    <!-- El contenido de la previsualización se llenará con JavaScript -->
+                                                </div>
                                                 <p>F. Registro: <?php echo htmlspecialchars($rows1['fecha'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                                <hr>
                                             </div>
                                         </article>
                                     <?php
@@ -81,12 +81,9 @@ if ($check_tema->rowCount() > 0) {
                                     foreach ($libro as $rows1) {
                                     ?>
                                         <article class="media event">
-                                            <a class="pull-left date">
-                                                <img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image">
-                                            </a>
                                             <div class="media-body">
                                                 <p><?php echo htmlspecialchars($rows1['re'], ENT_QUOTES, 'UTF-8'); ?></p>
-                                                <a class="title" href="#"><?php echo htmlspecialchars($rows1['recur'], ENT_QUOTES, 'UTF-8'); ?></a>
+                                                <a class="title" href="./biblioteca/images/archivos_recursos/<?php echo htmlspecialchars($rows1['recur'], ENT_QUOTES, 'UTF-8'); ?>" download><img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image"></a>
                                                 <p>F. Registro: <?php echo htmlspecialchars($rows1['fecha'], ENT_QUOTES, 'UTF-8'); ?></p>
                                             </div>
                                         </article>
@@ -103,12 +100,9 @@ if ($check_tema->rowCount() > 0) {
                                     foreach ($libro as $rows1) {
                                     ?>
                                         <article class="media event">
-                                            <a class="pull-left date">
-                                                <img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image">
-                                            </a>
                                             <div class="media-body">
                                                 <p><?php echo htmlspecialchars($rows1['re'], ENT_QUOTES, 'UTF-8'); ?></p>
-                                                <a class="title" href="#"><?php echo htmlspecialchars($rows1['recur'], ENT_QUOTES, 'UTF-8'); ?></a>
+                                                <a class="title" href="./biblioteca/images/archivos_recursos/<?php echo htmlspecialchars($rows1['recur'], ENT_QUOTES, 'UTF-8'); ?>" download><img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image"></a>
                                                 <p>F. Registro: <?php echo htmlspecialchars($rows1['fecha'], ENT_QUOTES, 'UTF-8'); ?></p>
                                             </div>
                                         </article>
@@ -125,12 +119,11 @@ if ($check_tema->rowCount() > 0) {
                                     foreach ($libro as $rows1) {
                                     ?>
                                         <article class="media event">
-                                            <a class="pull-left date">
-                                                <img src="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" alt="Image">
-                                            </a>
                                             <div class="media-body">
                                                 <p><?php echo htmlspecialchars($rows1['re'], ENT_QUOTES, 'UTF-8'); ?></p>
-                                                <a class="title" href="#"><?php echo htmlspecialchars($rows1['recur'], ENT_QUOTES, 'UTF-8'); ?></a>
+                                                <div id="file-preview" data-file-path="./biblioteca/images/icon/<?php echo htmlspecialchars($rows1['icon'], ENT_QUOTES, 'UTF-8'); ?>" data-file-type="<?php echo $fileType; ?>">
+                                                    <!-- El contenido de la previsualización se llenará con JavaScript -->
+                                                </div>
                                                 <p>F. Registro: <?php echo htmlspecialchars($rows1['fecha'], ENT_QUOTES, 'UTF-8'); ?></p>
                                             </div>
                                         </article>

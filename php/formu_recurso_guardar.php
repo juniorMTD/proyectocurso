@@ -8,6 +8,7 @@ $start = new Conexion();
 $nom_re = limpiar_cadena($_POST['nomrecur']);
 $idtem = limpiar_cadena($_POST['idtex']);
 $tipo_re = limpiar_cadena($_POST['tipo_recurso']);
+$enlace = limpiar_cadena($_POST['enlace']);
 $icono= limpiar_cadena($_POST['icono']);
 
 
@@ -78,13 +79,14 @@ try {
     $guardar_recurso = $start->Conexiondb();
 
     $guardar_recurso = $guardar_recurso->prepare('INSERT INTO recursox VALUES 
-(:id,:nom,:recu,DEFAULT,:ico,:gratuito,:idtr,:idtema)');
+(:id,:nom,:recu,:enlace,DEFAULT,:ico,:gratuito,:idtr,:idtema)');
 
 
     $maxmarcado = [
         ":id" => 'DEFAULT',
         ":nom" => $nom_re,
         ":recu" => $recurso,
+        ":enlace" => $enlace,
         ":ico" => $icono,
         ":gratuito" => '0',
         ":idtr" => $tipo_re,

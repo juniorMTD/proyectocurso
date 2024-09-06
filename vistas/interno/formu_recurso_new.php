@@ -59,10 +59,7 @@ $tema=$tema->fetchAll();
                     <div class="custom-form-group"></div>
                 </div>
                 <div class="custom-form-row">
-                    <div class="custom-form-group">
-                        <label for="custom-recurso">Suba el recurso (*)</label>
-                        <input type="file"  name="recurso" class="custom-form-control">
-                    </div>
+                    
                     <div class="custom-form-group">
                         <label for="custom-tipo_recurso">Tipo de recurso (*)</label>
                             <select name="tipo_recurso" class="custom-form-control">
@@ -86,6 +83,19 @@ $tema=$tema->fetchAll();
                             <option value="icon-vídeo-50.png" class="icon-option" data-icon="icon-vídeo-50.png">VIDEO</option>
                             <option value="icon-dominio-50.png" class="icon-option" data-icon="icon-dominio-50.png">WEB</option>
                         </select>
+                    </div>
+                </div>
+                <hr>
+                <small>Dependiendo al recurso que tiene, elija 1</small>
+                <hr>
+                <div class="custom-form-row">
+                    <div class="custom-form-group">
+                        <label for="custom-recurso">Suba el recurso </label>
+                        <input type="file"  name="recurso" class="custom-form-control">
+                    </div>
+                    <div class="custom-form-group">
+                        <label for="custom-recurso">Suba el enlace</label>
+                        <input type="text"  name="enlace" class="custom-form-control">
                     </div>
                 </div>
                 <div class="custom-form-row">
