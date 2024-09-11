@@ -1,0 +1,8 @@
+eliminar preguntas	ok
+reportes de encuestas
+boton atras de los recursos
+problemas en la busqueda
+editar los recursos
+editar las preguntas de las encuestas
+
+

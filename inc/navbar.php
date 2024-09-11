@@ -85,7 +85,7 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
                 <li><a><i class="fa fa-bar-chart"></i> Gestion Encuestas<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="./indexado.php?mostrar=formu_encuesta">Encuesta</a></li>
-                    <li><a href="./indexado.php?mostrar=formu_usuario">Reportes </a></li>
+                    <li><a href="./indexado.php?mostrar=formu_encuesta_reporte">Reportes </a></li>
                   </ul>
                 </li>
               </ul>

@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             }).then(() => {
                                 // Eliminar la fila de la tabla
                                 button.closest('tr').remove();
+                                button.closest('li').remove();
                             });
                         } else {
                             Swal.fire({
@@ -272,6 +273,61 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
+
+
+    let deleteForm1 = document.querySelector('.x_content'); // Usamos el contenedor que tiene todos los elementos dinámicos
+
+    if (deleteForm1) {
+        deleteForm1.addEventListener('click', function (e) {
+            if (e.target.classList.contains('delete-btn') || e.target.closest('.delete-btn')) {
+                e.preventDefault();
+
+                // Obtener el botón y su URL para eliminar
+                let button = e.target.closest('.delete-btn');
+                let deleteUrl = button.getAttribute('data-url');
+
+                // Confirmación para eliminar
+                showConfirmationDialog('¿Estás seguro?', '¡No podrás revertir esto!', 'Sí, eliminar!', function () {
+                    fetch(deleteUrl, { method: 'GET' })
+                        .then(response => {
+                            if (!response.ok) throw new Error('Error en la respuesta');
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.status === 'success') {
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'Eliminación Exitosa',
+                                    text: data.message,
+                                    showConfirmButton: true
+                                }).then(() => {
+                                    // Elimina el contenedor de la pregunta
+                                    button.closest('.x_panel').remove();
+                                });
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: data.message
+                                });
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: '¡Hubo un problema al procesar tu solicitud! Por favor, intenta nuevamente más tarde.'
+                            });
+                        });
+                });
+            }
+        });
+    }
+
+
+
+
 });
 
 function obtenerArchivoPorId(idarchivo){

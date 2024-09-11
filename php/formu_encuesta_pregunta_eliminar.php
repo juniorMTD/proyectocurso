@@ -1,6 +1,5 @@
 <?php
 
-
 require_once "../conexion/conexion_db.php";
 require_once "./main.php";
 
@@ -10,12 +9,12 @@ try {
     // Verificar si existe la pregunta
     $conexion = new Conexion();
     $check_pregunta = $conexion->Conexiondb();
-    $check_pregunta = $check_pregunta->query("SELECT idpreguntax FROM preguntax WHERE idpreguntax = '".$id_delete."'");
+    $check_pregunta = $check_pregunta->query("SELECT idpreguntax FROM preguntax WHERE idpreguntax = '$id_delete'");
 
     if ($check_pregunta->rowCount() == 1) {
         // Verificar si las opciones han sido respondidas
         $check_opciones = $conexion->Conexiondb();
-        $check_opciones = $check_opciones->query("SELECT o.idopcionx FROM opcionx o LEFT JOIN respuestax r ON r.idopcionx = o.idopcionx WHERE o.idpreguntax = '".$id_delete."' AND r.idopcionx IS NULL");
+        $check_opciones = $check_opciones->query("SELECT o.idopcionx FROM opcionx o LEFT JOIN respuestax r ON r.idopcionx = o.idopcionx WHERE o.idpreguntax = '$id_delete' AND r.idopcionx IS NULL");
 
         // Eliminar solo las opciones no respondidas
         if ($check_opciones->rowCount() > 0) {
@@ -29,9 +28,7 @@ try {
 
             // Verificar si la pregunta tiene más opciones restantes
             $check_opciones_restantes = $conexion->Conexiondb();
-            $check_opciones_restantes = $check_opciones_restantes->query("
-                SELECT idopcionx FROM opcionx WHERE idpreguntax = '".$id_delete."'
-            ");
+            $check_opciones_restantes = $check_opciones_restantes->query("SELECT idopcionx FROM opcionx WHERE idpreguntax = '$id_delete'");
 
             if ($check_opciones_restantes->rowCount() == 0) {
                 // Eliminar la pregunta si no tiene opciones restantes

@@ -84,7 +84,10 @@ if($check_encuesta->rowCount()>0){
                                       <ul class="dropdown-menu" role="menu">
                                         <li><a href="./indexado.php?mostrar=formu_encuesta_pregunta_update&idpregunta=<?php echo $rows1['idpreguntax'] ?>&idencuesta=<?php echo $rows1['idencuestax'] ?>"><i class="fa fa-edit"></i> Actualizar</a>
                                         </li>
-                                        <li id="delete-form"><a type="button" class="delete-btn" data-url="php/formu_encuesta_pregunta_eliminar.php?id_delete='<?php echo $rows1['idpreguntax'] ?>'"><i class="fa fa-trash"></i> Eliminar</a>
+                                        <li id="delete-form">
+                                          <a href="#" type="button" class="delete-btn" data-url="php/formu_encuesta_pregunta_eliminar.php?id_delete=<?php echo $rows1['idpreguntax'] ?>">
+                                            <i class="fa fa-trash"></i> Eliminar
+                                          </a>
                                         </li>
                                       </ul>
                                     </li>
