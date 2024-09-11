@@ -34,13 +34,12 @@ if($encuesta && $encuesta['estado_encuesta']==1){
 
 
 <!-- jdksdjssddjsdkskdsd -->
-
-    <div class="right_col" role="main">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-sm-8 col-xs-12">
-                <div class="x_panel" style="background:#2A3F54">
-                    <div class="x_title">
-                        <h3>ENCUESTA</h3>
+<div class="right_col" role="main">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="x_panel" style="background:#2A3F54">
+                <div class="x_title">
+                    <h3>ENCUESTA</h3>
                         <center><small>Por favor responda con sinceridad cada pregunta</small></center>
                         <div class="clearfix"></div>
                     </div>
@@ -91,7 +90,7 @@ if($encuesta && $encuesta['estado_encuesta']==1){
 
 <!-- dsdmsddsdsdsdsdsdsd -->
 
-<?php
+<?php   
     }
 } 
 else if($encuesta && $encuesta['estado_encuesta']==0) {

@@ -66,7 +66,25 @@ if($total>=1 && $pagina<=$npaginas){
                 <td class=" ">'.$contador.'</td>
                 <td class=" ">'.$rows['nom_recu'].'</td>
                 <td class=" ">'.$rows['tipox'].'</td>
-                <td class=" "><a href="./biblioteca/images/archivos_recursos/' . htmlspecialchars($rows['recurso']) . '" download>'.$rows['recurso'].'</a></td>
+                <td class=" ">';
+                if (!empty($rows['recurso'])) {
+                    // Mostrar el enlace para descargar el archivo
+                    $tabla .= '<a href="./biblioteca/images/archivos_recursos/' . htmlspecialchars($rows['recurso']) . '" download>' . htmlspecialchars($rows['recurso']) . '</a>';
+                } elseif (!empty($rows['enlace'])) {
+                    // Verificar si el enlace tiene "http://" o "https://" al inicio, si no lo tiene, agregarlo
+                    $enlace = $rows['enlace'];
+                    if (strpos($enlace, 'http://') !== 0 && strpos($enlace, 'https://') !== 0) {
+                        $enlace = 'http://' . $enlace;
+                    }
+                    // Mostrar el enlace guardado en la base de datos
+                    $tabla .= '<a href="' . htmlspecialchars($enlace) . '" target="_blank">Ver recurso en línea</a>';
+                } else {
+                    // Si ambos están vacíos, mostrar un mensaje o dejarlo en blanco
+                    $tabla .= 'No hay archivo ni enlace disponible';
+                }
+    
+        $tabla .= '
+                </td>
                 <td class=" ">';
 
         if ($rows['icono']) {

@@ -160,4 +160,28 @@ function tiempo_transcurrido($datetime, $full = false) {
     return $values ? 'hace ' . implode(', ', $values) : 'justo ahora';
 }
 
+function tipoArchivo($nombre,$extension){
+    $ruta="./biblioteca/images/archivos_recursos/".$nombre;
+    switch ($extension) {
+        case 'jpg':
+        case 'png':
+        case '':
+            return '<img src="'.$ruta.'" style="width:100%;height:500px;">';
+            break;
+        case 'pdf':
+            return '<iframe src="'.$ruta.'" style="width:100%; height:400px;" frameborder="0"></iframe>';
+            break;
+        case 'mp4':
+            return '<video controls style="width:100%"><source src="' . $ruta . '" type="video/mp4"></video>';
+            break;
+        case 'docx':  // Previsualización de archivos Word usando Google Docs Viewer
+        case 'doc':
+            return '<iframe src="https://docs.google.com/gview?url=' . $ruta . '&embedded=true" style="width:100%; height:400px;" frameborder="0"></iframe>';
+            break;
+        default:
+            return '<p>Archivo no soportado para previsualización.</p>';
+            break;
+    }
+}
+
 ?>

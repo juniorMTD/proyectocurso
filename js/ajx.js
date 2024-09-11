@@ -2,20 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var previewContainer = document.getElementById('file-preview');
-    var filePath = previewContainer.getAttribute('data-file-path');
-    var fileType = previewContainer.getAttribute('data-file-type');
-
-    if (fileType.startsWith('image/')) {
-        previewContainer.innerHTML = '<img src="' + filePath + '" alt="Image" style="max-width: 100%; height: auto;">';
-    } else if (fileType.startsWith('video/')) {
-        previewContainer.innerHTML = '<video controls style="max-width: 100%; height: auto;"><source src="' + filePath + '" type="' + fileType + '">Your browser does not support the video tag.</video>';
-    } else if (fileType === 'application/pdf') {
-        previewContainer.innerHTML = '<iframe src="' + filePath + '" style="width: 100%; height: 500px;" frameborder="0"></iframe>';
-    } else {
-        previewContainer.innerHTML = '<p>Tipo de archivo no soportado para previsualización.</p>';
-    }
-
     // Selecciona el elemento select por su ID  
     var tipoPreguntaSelect = document.getElementById('tipo_pregunta');
 
@@ -286,9 +272,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     }
-
-
-    
-
-   
 });
+
+function obtenerArchivoPorId(idarchivo){
+    $.ajax({
+        type:"POST",
+        data: "idArchivo="+idarchivo,
+        url:"/proyectocurso/php/obtenerarchivo.php",
+        success: function(respuesta) {
+            var datos = JSON.parse(respuesta);
+            if (datos.status === "success") {
+                // Colocar la imagen o contenido del archivo en el modal
+                $('#archivoObtenido').html(datos.archivo);
+            } else {
+                // Mostrar mensaje de error si no se encuentra el archivo
+                $('#archivoObtenido').html('<p>' + datos.message + '</p>');
+            }
+        }
+    })
+}
