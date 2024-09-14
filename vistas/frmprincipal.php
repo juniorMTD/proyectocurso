@@ -14,8 +14,10 @@ if (!isset($_SESSION['idusu'])) {
 
 $check_encuesta=$start->Conexiondb();
 $check_encuesta=$check_encuesta->query("select idencuestax,estado_encuesta from encuestax order by idencuestax desc limit 0,1");
-$encuesta=$check_encuesta->fetch(PDO::FETCH_ASSOC);;
 
+$encuesta=$check_encuesta->fetch(PDO::FETCH_ASSOC);
+
+if ($encuesta) {
 if($encuesta && $encuesta['estado_encuesta']==1){
     $idusuario = $_SESSION['idusu'];
     $idencuesta = $encuesta['idencuestax'];
@@ -97,5 +99,8 @@ else if($encuesta && $encuesta['estado_encuesta']==0) {
 
     include "categoriahtml.php";
 
+}
+} else {
+    include "categoriahtml.php";
 }
 ?>

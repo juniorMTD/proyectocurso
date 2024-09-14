@@ -1,15 +1,28 @@
-<?php
-$consulta="SELECT p.texto_pregunta, o.texto_opcionx, COUNT(r.idopcionx) AS total_respuestas
-FROM respuestax r
-JOIN preguntax p ON r.idpreguntax = p.idpreguntax
-JOIN opcionx o ON r.idopcionx = o.idopcionx
-WHERE p.idencuestax = 5
-GROUP BY p.texto_pregunta, o.texto_opcionx;";
+<!-- page content -->
+<div class="right_col" role="main">
+    <div class="">
+        <div>
+            <h3>REPORTE POR</h3>
+            <strong>Lista de cursos</strong>
+            <hr>
+            <a href="./indexado.php?mostrar=formu_curso_new" type="button" class="btn btn-warning"><i class="fa fa-user"></i> IMPRIMIR</a>
+            <hr>
 
+        </div>
+        <div class="clearfix"></div>
 
-?>
-
-
-<h1>
-    Hola soy reporte respusta
-</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="row">
+                            <div style="width: 50%; margin: auto;">
+                                <canvas id="myChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,10 @@
+terraciviladmin
+terraciviladmin
+
 eliminar preguntas	ok
 reportes de encuestas
-boton atras de los recursos
-problemas en la busqueda
+boton atras de los recursos ok
+problemas en la busqueda ok
 editar los recursos
 editar las preguntas de las encuestas
 

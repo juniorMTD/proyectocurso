@@ -106,7 +106,7 @@ nu.idnotificacionx=n.idnotificacionx where nu.leido='0' and nu.idusuariox='admin
             <ul class="nav navbar-nav navbar-right" >
               <li class="">
                 <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="./biblioteca/images/img.jpg" alt=""><?php ob_start();
+                  <img src="./biblioteca/images/img.jpg" alt=""><?php
                                                                 echo $_SESSION['nombres'] . " " . $_SESSION['apellidos'] ?>
                   <span class="fa fa-angle-down"></span>
                 </a>
@@ -245,7 +245,7 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="#" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="./biblioteca/images/img.jpg" alt=""><?php ob_start();
+                  <img src="./biblioteca/images/img.jpg" alt=""><?php
                                                                 echo $_SESSION['nombres'] . " " . $_SESSION['apellidos'] ?>
                   <span class="fa fa-angle-down"></span>
                 </a>
@@ -302,5 +302,5 @@ where nu.leido='0' and nu.idusuariox='$idusu' ORDER BY n.fec DESC limit 0,5;");
       </div>
       <!-- /top navigation -->
     <?php
-  } else {
-  }
+  } 
+  ?>

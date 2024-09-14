@@ -13,7 +13,7 @@ $datos = $check_tipo->fetchAll();
 
 
 $check_tema = $start->Conexiondb();
-$check_tema = $check_tema->query("select t.idtemax as idt, tr.tipox as tp, cu.nombre as curso, t.temx as tema, r.recurso as recur, r.enlace
+$check_tema = $check_tema->query("select t.idtemax as idt, tr.tipox as tp, cu.nombre as curso, t.temx as tema, r.recurso as recur, r.enlace,cu.idcursox
  from temax t  inner join recursox r ON
 r.idtemax=t.idtemax inner join cursox cu on t.idcursox=cu.idcursox inner join tipo_recursox tr
 on r.idtipo_recursox=tr.idtipo_recursox where t.idtemax='$id';");
@@ -34,7 +34,7 @@ if ($check_tema->rowCount() > 0) {
                     <h6  class="titulos-contenido">CURSO: <?php echo htmlspecialchars($datos1['curso'], ENT_QUOTES, 'UTF-8'); ?> <br><br>TEMA: <br> <?php echo htmlspecialchars($datos1['tema'], ENT_QUOTES, 'UTF-8'); ?></h6>
                 </div>
                 <div class="title_right">
-                    <a href="frmtema.html" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
+                    <a href="indexado.php?mostrar=frmtema&id_mostrar1=<?php echo htmlspecialchars($datos1['idcursox'], ENT_QUOTES, 'UTF-8'); ?>" type="button" class="btn btn-danger"><i class="fa fa-mail-reply"></i> Atras</a>
                 </div>
             </div>
             <div class="clearfix"></div>

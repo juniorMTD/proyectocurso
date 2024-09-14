@@ -91,7 +91,7 @@ try {
                 throw new PDOException("Error al registrar la notificacion por usuario");
             }
         }else {
-            throw new PDOException("Error al registrar la notificacion");
+            throw new PDOException("Error aun no existe ningun usuario para notifica");
         }
         
     } else {

@@ -8,6 +8,7 @@
     <!-- Custom Theme Scripts -->
     <script src="./js/custom.min.js"></script>
     <script src="./js/select2.min.js"></script>
+    <!-- <script src="./js/chart.js"></script> -->
 
     <script>
         $(document).ready(function() {

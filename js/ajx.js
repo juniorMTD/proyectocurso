@@ -1,5 +1,47 @@
 /* nuevo js */
 
+let myChart;
+
+function inicializarGrafico(data) {
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    if (myChart) {
+        myChart.destroy(); // Destruye el gráfico anterior si existe, para evitar sobrecargas
+    }
+
+    myChart = new Chart(ctx, {
+        type: 'bar', // Puedes cambiar el tipo de gráfico
+        data: {
+            labels: ['Opción 1', 'Opción 2', 'Opción 3', 'Opción 4'], // Etiquetas de las opciones
+            datasets: [{
+                label: 'Respuestas',
+                data: data, // Datos dinámicos recibidos
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 5 // Valor máximo en el eje Y
+                }
+            }
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
 
     // Selecciona el elemento select por su ID  
@@ -325,9 +367,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-
-
-
 });
 
 function obtenerArchivoPorId(idarchivo){
@@ -346,4 +385,24 @@ function obtenerArchivoPorId(idarchivo){
             }
         }
     })
+}
+
+function obtenerDatosParaGrafico() {
+    $.ajax({
+        type: "GET",
+        url: "/ruta/a/tu/api/encuestas", // Cambia por la ruta correcta
+        success: function (respuesta) {
+            // Parsear la respuesta para obtener los datos
+            const datos = JSON.parse(respuesta);
+            
+            // Supongamos que 'datos' es un array con los números de respuestas
+            const respuestas = datos.respuestas; // ['3', '5', '2', '0'] por ejemplo
+
+            // Llamamos a la función para inicializar o actualizar el gráfico
+            inicializarGrafico(respuestas);
+        },
+        error: function (error) {
+            console.error("Error obteniendo los datos: ", error);
+        }
+    });
 }
