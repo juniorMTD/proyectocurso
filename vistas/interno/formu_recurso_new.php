@@ -77,7 +77,6 @@ $tema=$tema->fetchAll();
                         <label for="custom-icono">Seleccione un icono <small>(*)</small> </label>
                         <select id="icon-select" style="width: 200px;" name="icono">
                             <option value="icon-pdf-2-50.png" class="icon-option" data-icon="icon-pdf-2-50.png">PDF</option>
-                            <option value="icon-zip-50.png" class="icon-option" data-icon="icon-zip-50.png">ZIP</option>
                             <option value="icon-libro-50.png" class="icon-option" data-icon="icon-libro-50.png">WORD</option>
                             <option value="icon-fotos-48.png" class="icon-option" data-icon="icon-fotos-48.png">IMAGEN</option>
                             <option value="icon-vídeo-50.png" class="icon-option" data-icon="icon-vídeo-50.png">VIDEO</option>

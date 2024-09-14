@@ -47,7 +47,7 @@ try {
 
             echo json_encode($response);
         } else {
-            $response = array("status" => "error", "message" => "No hay opciones no respondidas para eliminar.");
+            $response = array("status" => "error", "message" => "Ya hay mas de una respuesta.");
             echo json_encode($response);
         }
 

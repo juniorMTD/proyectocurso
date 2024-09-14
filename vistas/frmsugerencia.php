@@ -23,7 +23,7 @@ require_once "./php/main.php";
                         <strong>¡Error!</strong> Los datos ingresados no son válidos, intente nuevamente.
                     </div>
                 </div>
-                <input type="hidden" name="idusu" value="<?php echo $_SESSION['id'] ?>" >
+                <input type="hidden" name="idusu" value="<?php echo $_SESSION['idusu'] ?>" >
 
                 <div class="custom-form-row">
                     <div class="custom-form-group">

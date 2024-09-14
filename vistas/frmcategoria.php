@@ -52,8 +52,8 @@ if($check_curso->rowCount()>0){
                         <div class="col-sm-12">
                             <div class="left col-xs-7">
                                 <h5><i class="fa fa-cc"></i> <strong>CURSO: <br> </strong> <?php echo htmlspecialchars($rows['nombre'], ENT_QUOTES, 'UTF-8'); ?></h5>
-                                <p><i class="fa fa-child"></i> <strong>Docente: <br> </strong> <?php echo htmlspecialchars($rows['docentex'], ENT_QUOTES, 'UTF-8'); ?></p>
-                                <p><i class="fa fa-phone"></i> <strong>Docente: <br> </strong> <?php echo htmlspecialchars($rows['celularx'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p><i class="fa fa-child"></i> <strong>Instructor: <br> </strong> <?php echo htmlspecialchars($rows['docentex'], ENT_QUOTES, 'UTF-8'); ?></p>
+                                <p><i class="fa fa-phone"></i> <strong>Celular: <br> </strong> <?php echo htmlspecialchars($rows['celularx'], ENT_QUOTES, 'UTF-8'); ?></p>
                             </div>
                             <div class="right col-xs-5 text-center">
                                 <img src="./biblioteca/images/img.jpg" alt="" class="img-circle img-responsive">

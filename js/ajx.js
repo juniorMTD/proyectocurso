@@ -111,9 +111,6 @@ document.addEventListener('DOMContentLoaded', function () {
         row.remove();
       };
 
-
-
-
     // Función genérica para mostrar el diálogo de confirmación
     function showConfirmationDialog(title, text, confirmButtonText, callback) {
         Swal.fire({
@@ -289,7 +286,6 @@ document.addEventListener('DOMContentLoaded', function () {
                             }).then(() => {
                                 // Eliminar la fila de la tabla
                                 button.closest('tr').remove();
-                                button.closest('li').remove();
                             });
                         } else {
                             Swal.fire({
@@ -321,11 +317,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (deleteForm1) {
         deleteForm1.addEventListener('click', function (e) {
-            if (e.target.classList.contains('delete-btn') || e.target.closest('.delete-btn')) {
+            if (e.target.classList.contains('delete-btn1') || e.target.closest('.delete-btn1')) {
                 e.preventDefault();
 
                 // Obtener el botón y su URL para eliminar
-                let button = e.target.closest('.delete-btn');
+                let button = e.target.closest('.delete-btn1');
                 let deleteUrl = button.getAttribute('data-url');
 
                 // Confirmación para eliminar
@@ -369,22 +365,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function obtenerArchivoPorId(idarchivo){
+function obtenerArchivoPorId(idarchivo) {
     $.ajax({
-        type:"POST",
-        data: "idArchivo="+idarchivo,
-        url:"/proyectocurso/php/obtenerarchivo.php",
+        type: "POST",
+        data: { idArchivo: idarchivo }, // Usar un objeto para enviar datos
+        url: "./php/obtenerarchivo.php",
         success: function(respuesta) {
-            var datos = JSON.parse(respuesta);
-            if (datos.status === "success") {
-                // Colocar la imagen o contenido del archivo en el modal
-                $('#archivoObtenido').html(datos.archivo);
-            } else {
-                // Mostrar mensaje de error si no se encuentra el archivo
-                $('#archivoObtenido').html('<p>' + datos.message + '</p>');
+            try {
+                var datos = JSON.parse(respuesta); // Parsear la respuesta JSON
+                if (datos.status === "success") {
+                    // Colocar la imagen o contenido del archivo en el modal
+                    $('#archivoObtenido').html(datos.archivo);
+                    // Configura el enlace de descarga si es necesario
+                    $('#download-button').attr('href', datos.fileUrl);
+                    $('#download-button').attr('download', datos.fileName);
+
+                    openModal(); // Asegúrate de abrir el modal después de cargar el contenido
+                } else {
+                    // Mostrar mensaje de error si no se encuentra el archivo
+                    $('#archivoObtenido').html('<p>' + datos.message + '</p>');
+                    openModal(); // Asegúrate de abrir el modal después de cargar el contenido
+                }
+            } catch (e) {
+                $('#archivoObtenido').html('<p>Error al procesar la respuesta.</p>');
+                openModal(); // Asegúrate de abrir el modal después de cargar el contenido
             }
+        },
+        error: function() {
+            $('#archivoObtenido').html('<p>Error al cargar el contenido.</p>');
+            openModal(); // Asegúrate de abrir el modal después de cargar el contenido
         }
-    })
+    });
+}
+
+
+// Función para abrir el modal
+function openModal() {
+    $('#modalprevisualizar').modal('show');
+}
+
+// Función para cerrar el modal
+function closeModal() {
+    $('#modalprevisualizar').modal('hide');
 }
 
 function obtenerDatosParaGrafico() {

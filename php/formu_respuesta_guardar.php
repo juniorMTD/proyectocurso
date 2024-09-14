@@ -26,6 +26,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $respuestas_validas = [];
     $preguntas_sin_respuestas = [];
 
+    // Obtener todas las preguntas de la encuesta
+    $preguntas_encuesta_query = $conexion->prepare("SELECT idpreguntax FROM preguntax WHERE idencuestax = :idencuesta");
+    $preguntas_encuesta_query->execute([':idencuesta' => $idencuesta]);
+    $todas_preguntas = $preguntas_encuesta_query->fetchAll(PDO::FETCH_COLUMN);
+
+    // Verificar si todas las preguntas de la encuesta han sido respondidas
+    $preguntas_respondidas = array_keys($preguntas);
+
+    foreach ($todas_preguntas as $idpregunta) {
+        if (!in_array($idpregunta, $preguntas_respondidas)) {
+            $preguntas_sin_respuestas[] = $idpregunta;
+        }
+    }
+
     // Validar preguntas y respuestas
     foreach ($preguntas as $idpregunta => $opcion_seleccionada) {
         // Obtener el tipo de pregunta
@@ -57,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Verificar si hay preguntas sin respuestas
     if (!empty($preguntas_sin_respuestas)) {
-        $response = array("status" => "error", "message" => "¡Debe seleccionar al menos una opción en cada pregunta!");
+        $response = array("status" => "error", "message" => "¡Debe responder todas las preguntas!");
         echo json_encode($response);
         exit();
     }
@@ -66,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conexion->beginTransaction();
         // Insertar las respuestas válidas en la base de datos
         foreach ($respuestas_validas as $respuesta) {
-            $guardar_respuesta = $conexion->prepare('INSERT INTO respuestax VALUES (DEFAULT, DEFAULT, :estado, :idpregunta, :idusuario, :idopcion)');
+            $guardar_respuesta = $conexion->prepare('INSERT INTO respuestax  VALUES (DEFAULT,DEFAULT, :estado, :idpregunta, :idusuario, :idopcion)');
             $guardar_respuesta->execute([
                 ":estado" => '1',
                 ":idpregunta" => $respuesta['idpregunta'],
@@ -88,9 +102,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response = array("status" => "success", "message" => "¡Se registró correctamente!");
         echo json_encode($response);
 
-    } catch (Exception $e) {
+    } catch (PDOException $e) {
         $conexion->rollBack();
-        $response = array("status" => "error", "message" => "Error al guardar las respuestas. Inténtelo de nuevo.");
+        // Mostrar el mensaje de error para depuración
+        $response = array("status" => "error", "message" => "Error al guardar las respuestas. Detalle del error: " . $e->getMessage());
         echo json_encode($response);
+        error_log("Error al guardar las respuestas: " . $e->getMessage()); // Guarda el error en el log del servidor
     }
 }
+?>

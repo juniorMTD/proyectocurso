@@ -57,7 +57,7 @@ if($check_categoria->rowCount()>0){
                 <div class="custom-form-row">
                     <div class="custom-form-group">
                         <label for="custom-descripcion">Descripcion</label>
-                        <textarea name="descripcion" class="custom-form-control" value="<?php echo $datos['descx']; ?>"></textarea>
+                        <textarea name="descripcion" class="custom-form-control"> <?php echo $datos['descx']; ?></textarea>
                     </div>
                     <div class="custom-form-group">
                     </div>

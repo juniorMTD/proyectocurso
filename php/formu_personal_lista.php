@@ -5,13 +5,13 @@ $tabla="";
 
 if(isset($busqueda)&&$busqueda!=""){
     $consulta_datos="select * from empleado e inner join usux u on e.idusux=u.idusux
-                    where e.nomx like '%$busqueda%' order by e.idempleado desc limit 0,$registros";
+                    where e.nomx like '%$busqueda%' order by e.idempleado asc limit 1,$registros";
 
     $consulta_total="select count(e.idempleado) from empleado e inner join usux u on e.idusux=u.idusux
                     where e.nomx like '%$busqueda%'";
 }else{
     $consulta_datos="select * from empleado e inner join usux u on e.idusux=u.idusux
-                    order by e.idempleado desc limit 0,$registros";
+                    order by e.idempleado asc limit 1,$registros";
 
     $consulta_total="select count(e.idempleado) from empleado e inner join usux u on e.idusux=u.idusux";
 }

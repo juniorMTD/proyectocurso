@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2024 a las 22:23:56
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.0.23
+-- Tiempo de generación: 15-09-2024 a las 00:11:37
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `categoriax` (
   `idcategoriax` int(11) NOT NULL,
   `nomx` varchar(100) NOT NULL,
   `descx` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE `cursox` (
   `foto_prof` text DEFAULT NULL,
   `estadox` tinyint(4) NOT NULL,
   `idcategoriax` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `empleado` (
   `apelx` varchar(150) NOT NULL,
   `cargo` varchar(45) NOT NULL,
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `empleado`
@@ -84,7 +84,7 @@ CREATE TABLE `encuestax` (
   `descripx` text DEFAULT NULL,
   `f_creacion` timestamp NULL DEFAULT current_timestamp(),
   `estado_encuesta` tinyint(4) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -98,7 +98,7 @@ CREATE TABLE `encuesta_usux` (
   `fecha_completada` timestamp NULL DEFAULT NULL,
   `idencuestax` int(11) NOT NULL,
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE `notificacionx` (
   `leido` tinyint(4) DEFAULT 0,
   `fec` timestamp NULL DEFAULT current_timestamp(),
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -126,7 +126,7 @@ CREATE TABLE `notificacionx_usuariox` (
   `leido` tinyint(4) DEFAULT NULL,
   `idnotificacionx` int(11) NOT NULL,
   `idusuariox` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE `opcionx` (
   `texto_opcionx` text NOT NULL,
   `estado_opcion` tinyint(4) DEFAULT NULL,
   `idpreguntax` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE `pagox` (
   `estado_pago` tinyint(4) NOT NULL,
   `idrecursox` int(11) NOT NULL,
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,7 @@ CREATE TABLE `preguntax` (
   `estado_preg` tinyint(4) DEFAULT NULL,
   `idencuestax` int(11) NOT NULL,
   `idtipo_preguntax` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -186,7 +186,7 @@ CREATE TABLE `recursox` (
   `es_gratuito` tinyint(4) NOT NULL,
   `idtipo_recursox` int(11) NOT NULL,
   `idtemax` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,7 @@ CREATE TABLE `respuestax` (
   `idpreguntax` int(11) NOT NULL,
   `idusux` int(11) NOT NULL,
   `idopcionx` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -213,7 +213,7 @@ CREATE TABLE `sliderx` (
   `idsliderx` int(11) NOT NULL,
   `imagen` text NOT NULL,
   `descripcion` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -228,7 +228,7 @@ CREATE TABLE `sugerenciax` (
   `f_registro` timestamp NULL DEFAULT current_timestamp(),
   `estado_segu` tinyint(4) NOT NULL,
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -241,7 +241,7 @@ CREATE TABLE `temax` (
   `temx` text NOT NULL,
   `estadox` tinyint(4) NOT NULL,
   `idcursox` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -252,17 +252,15 @@ CREATE TABLE `temax` (
 CREATE TABLE `tipo_preguntax` (
   `idtipo_preguntax` int(11) NOT NULL,
   `tipo_pregunta` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_preguntax`
 --
 
 INSERT INTO `tipo_preguntax` (`idtipo_preguntax`, `tipo_pregunta`) VALUES
-(1, 'LIBROS'),
-(2, 'VIDEOS'),
-(3, 'RESUMENES'),
-(4, 'INFOGRAFIAS');
+(1, 'OPCIONES SIMPLES'),
+(2, 'OPCIONES MULTIPLES');
 
 -- --------------------------------------------------------
 
@@ -273,15 +271,17 @@ INSERT INTO `tipo_preguntax` (`idtipo_preguntax`, `tipo_pregunta`) VALUES
 CREATE TABLE `tipo_recursox` (
   `idtipo_recursox` int(11) NOT NULL,
   `tipox` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipo_recursox`
 --
 
 INSERT INTO `tipo_recursox` (`idtipo_recursox`, `tipox`) VALUES
-(1, 'OPCIONES SIMPLES'),
-(2, 'OPCIONES MULTIPLES');
+(1, 'LIBROS'),
+(2, 'VIDEOS'),
+(3, 'RESUMENES'),
+(4, 'INFOGRAFIAS');
 
 -- --------------------------------------------------------
 
@@ -303,7 +303,7 @@ CREATE TABLE `usuariox` (
   `fotox` text DEFAULT NULL,
   `fecha` timestamp NULL DEFAULT current_timestamp(),
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -316,7 +316,7 @@ CREATE TABLE `usux` (
   `usux` varchar(120) NOT NULL,
   `clvx` varchar(150) NOT NULL,
   `estadox` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `usux`
@@ -337,7 +337,7 @@ CREATE TABLE `viewx` (
   `user_ip` text DEFAULT NULL,
   `idrecursox` int(11) NOT NULL,
   `idusux` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -583,13 +583,13 @@ ALTER TABLE `temax`
 -- AUTO_INCREMENT de la tabla `tipo_preguntax`
 --
 ALTER TABLE `tipo_preguntax`
-  MODIFY `idtipo_preguntax` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idtipo_preguntax` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_recursox`
 --
 ALTER TABLE `tipo_recursox`
-  MODIFY `idtipo_recursox` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idtipo_recursox` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `usuariox`
